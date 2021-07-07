@@ -24,5 +24,10 @@ namespace Hello_world
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            textBlock1.Text = "Hello world!";
+        }
     }
 }
