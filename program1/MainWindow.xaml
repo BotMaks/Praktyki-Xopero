@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:program1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Strona Glowna" Height="450" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="107*"/>
+        </Grid.ColumnDefinitions>
+
     </Grid>
 </Window>
