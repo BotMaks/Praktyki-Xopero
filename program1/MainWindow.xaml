@@ -13,7 +13,7 @@
             </Grid>
         </ControlTemplate>
     </Window.Resources>
-    <Grid>
+    <Grid x:Name="grid">
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
             <RowDefinition Height="256*"/>
@@ -27,19 +27,26 @@
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="74" Margin="28,46,17,17" Grid.Row="2" Height="20" Click="startButton_Click"/>
         <ProgressBar x:Name="pasekPostepu" Grid.Column="1" Grid.Row="2" Height="20"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
+            <StackPanel.Background>
+                <ImageBrush/>
+            </StackPanel.Background>
             <TextBlock TextWrapping="Wrap" Text="Unikaj oponentów" FontFamily="Arial"/>
-            <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="ContentControl" Template="{DynamicResource Oponent}" Margin="0" Width="70" Height="70"/>
+            <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="ContentControl" Template="{DynamicResource Oponent}" Margin="0" Width="70" Height="70">
+                <ContentControl.Background>
+                    <ImageBrush/>
+                </ContentControl.Background>
+            </ContentControl>
         </StackPanel>
-        <Canvas x:Name="playArea" Margin="0" Grid.Row="1" Grid.ColumnSpan="3">
+        <Canvas x:Name="playArea" Margin="0" Grid.Row="1" Grid.ColumnSpan="3" MouseMove="playArea_MouseMove" MouseLeave="playArea_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="background.jpg"/>
             </Canvas.Background>
-            <StackPanel x:Name="czlowiek" Orientation="Vertical">
+            <StackPanel x:Name="czlowiek" Orientation="Vertical" MouseDown="czlowiek_MouseDown">
                 <Ellipse Fill="White" Stroke="Black" Width="20" Height="20"/>
                 <Rectangle Fill="White" Stroke="Black" Width="20" Height="40"/>
             </StackPanel>
             <TextBlock x:Name="tekstKoncowy" TextWrapping="Wrap" Text="Koniec gry" Canvas.Left="102" Canvas.Top="76" FontSize="100" FontFamily="Arial Black" FontWeight="Bold" TextDecorations="{x:Null}" FontStyle="Italic"/>
-            <Rectangle Height="50" Stroke="Black" Width="50" Canvas.Left="658" Canvas.Top="34" RenderTransformOrigin="0.5,0.5">
+            <Rectangle x:Name="cel" Height="50" Stroke="Black" Width="50" Canvas.Left="658" Canvas.Top="34" RenderTransformOrigin="0.5,0.5" MouseMove="cel_MouseMove">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+using System.Drawing;
+
 namespace program1
 {
     /// <summary>
@@ -73,6 +75,7 @@ namespace program1
             //playArea.Children.Add(oponent);
             DodajOponenta();
             playArea.Children.Add(czlowiek);
+            playArea.Children.Add(cel);
             timerOponenta.Start();
             timerCelu.Start();
 
@@ -84,6 +87,15 @@ namespace program1
             AnimujOponenta(oponent, 0, playArea.ActualWidth - 70, "(Canvas.Left)");
             AnimujOponenta(oponent, random.Next((int)playArea.ActualHeight - 70), random.Next((int)playArea.ActualHeight - 70), "(Canvas.Top)");
             playArea.Children.Add(oponent);
+
+            oponent.MouseEnter += Oponent_MouseEnter;
+        }
+
+        private void Oponent_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (zlapCzlowieka) {
+                WylaczGre();
+            }
         }
 
         private void AnimujOponenta(ContentControl oponent, double poczatek, double koniec, string infoDoAnimacji)
@@ -94,6 +106,54 @@ namespace program1
             Storyboard.SetTargetProperty(animacja, new PropertyPath(infoDoAnimacji));
             storyboard.Children.Add(animacja);
             storyboard.Begin();
+        }
+
+        private void czlowiek_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (timerOponenta.IsEnabled)
+            {
+                zlapCzlowieka = true;
+                czlowiek.IsHitTestVisible = false;
+            }
+        }
+
+        private void cel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (timerCelu.IsEnabled && zlapCzlowieka) {
+                pasekPostepu.Value = 0;
+                Canvas.SetLeft(cel, random.Next(100, (int)playArea.ActualWidth - 100));
+                Canvas.SetTop(cel, random.Next(100, (int)playArea.ActualHeight - 100));
+                Canvas.SetLeft(czlowiek, random.Next(100, (int)playArea.ActualWidth - 100));
+                Canvas.SetTop(czlowiek, random.Next(100, (int)playArea.ActualHeight - 100));
+               
+                zlapCzlowieka = false;
+                czlowiek.IsHitTestVisible = true;
+            }
+        }
+
+        private void playArea_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (zlapCzlowieka) {
+                Point pozycjaKursora = e.GetPosition(null);
+                Point relatywnaPozycja = grid.TransformToVisual(playArea).Transform(pozycjaKursora);
+                if ((Math.Abs(relatywnaPozycja.X - Canvas.GetLeft(czlowiek)) > czlowiek.ActualWidth * 3)
+                    || (Math.Abs(relatywnaPozycja.Y - Canvas.GetTop(czlowiek)) > czlowiek.ActualHeight * 3))
+                {
+                    zlapCzlowieka = false;
+                    czlowiek.IsHitTestVisible = true;
+                }
+                else {
+                    Canvas.SetLeft(czlowiek, relatywnaPozycja.X - czlowiek.ActualWidth / 2);
+                    Canvas.SetTop(czlowiek, relatywnaPozycja.Y - czlowiek.ActualHeight / 2);
+                }
+            }
+        }
+
+        private void playArea_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (zlapCzlowieka) {
+                WylaczGre();
+            }
         }
     }
 }

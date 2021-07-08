@@ -100,5 +100,8 @@
   <ItemGroup>
     <Resource Include="meta.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="oponent.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
