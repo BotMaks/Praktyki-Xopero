@@ -25,7 +25,7 @@
             <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="74" Margin="28,46,17,17" Grid.Row="2" Height="20" Click="startButton_Click"/>
-        <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
+        <ProgressBar x:Name="pasekPostepu" Grid.Column="1" Grid.Row="2" Height="20"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
             <TextBlock TextWrapping="Wrap" Text="Unikaj oponentów" FontFamily="Arial"/>
             <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="ContentControl" Template="{DynamicResource Oponent}" Margin="0" Width="70" Height="70"/>

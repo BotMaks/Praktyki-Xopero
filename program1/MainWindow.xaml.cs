@@ -22,23 +22,67 @@ namespace program1
     public partial class MainWindow : Window
     {
         Random random = new Random();
-        
+        DispatcherTimer timerOponenta = new DispatcherTimer();
+        DispatcherTimer timerCelu = new DispatcherTimer();
+        bool zlapCzlowieka = false;
         public MainWindow()
         {
             InitializeComponent();
+
+            timerOponenta.Tick += TimerOponenta_Tick;
+            timerOponenta.Interval = TimeSpan.FromSeconds(2);
+
+            timerCelu.Tick += TimerCelu_Tick;
+            timerCelu.Interval = TimeSpan.FromSeconds(.1);
         }
 
-        private void startButton_Click(object sender, RoutedEventArgs e)
+        private void TimerCelu_Tick(object sender, EventArgs e)
+        {
+            pasekPostepu.Value += 1;
+            if (pasekPostepu.Value >= pasekPostepu.Maximum) {
+               WylaczGre();
+            }
+        }
+
+        private void WylaczGre() {
+            if (!playArea.Children.Contains(tekstKoncowy)) {
+                timerOponenta.Stop();
+                timerCelu.Stop();
+                zlapCzlowieka = false;
+                startButton.Visibility = Visibility.Visible;
+                playArea.Children.Add(tekstKoncowy);
+            }
+        }
+
+        private void TimerOponenta_Tick(object sender, EventArgs e)
         {
             DodajOponenta();
         }
 
+        private void startButton_Click(object sender, RoutedEventArgs e)
+        {
+            RozpocznijGre();
+        }
+
+        private void RozpocznijGre() {
+            czlowiek.IsHitTestVisible = true;
+            zlapCzlowieka = false;
+            pasekPostepu.Value = 0;
+            startButton.Visibility = Visibility.Collapsed;
+            playArea.Children.Clear();
+            //playArea.Children.Add(oponent);
+            DodajOponenta();
+            playArea.Children.Add(czlowiek);
+            timerOponenta.Start();
+            timerCelu.Start();
+
+        }
         private void DodajOponenta()
         {
             ContentControl oponent = new ContentControl();
             oponent.Template = Resources["Oponent"] as ControlTemplate;
-            AnimujOponenta(oponent, 0, playArea.ActualWidth - 100, "(Canvas.Left)");
-            AnimujOponenta(oponent, random.Next((int)playArea.ActualHeight - 100), random.Next((int)playArea.ActualHeight - 100), "(Canvas.Top)");
+            AnimujOponenta(oponent, 0, playArea.ActualWidth - 70, "(Canvas.Left)");
+            AnimujOponenta(oponent, random.Next((int)playArea.ActualHeight - 70), random.Next((int)playArea.ActualHeight - 70), "(Canvas.Top)");
             playArea.Children.Add(oponent);
         }
 
