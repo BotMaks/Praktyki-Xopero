@@ -60,7 +60,7 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Canvas>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gramy w komputer" VerticalAlignment="Top" Margin="21,33,0,0" FontSize="24" Grid.ColumnSpan="2" Width="214" Height="32"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Potężna gra" VerticalAlignment="Top" Margin="21,33,0,0" FontSize="24" Grid.ColumnSpan="2" Width="214" Height="32"/>
 
     </Grid>
 </Window>
