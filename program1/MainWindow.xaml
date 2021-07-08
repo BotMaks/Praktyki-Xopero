@@ -24,7 +24,7 @@
             <ColumnDefinition Width="561*"/>
             <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="74" Margin="28,46,17,17" Grid.Row="2" Height="20"/>
+        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="74" Margin="28,46,17,17" Grid.Row="2" Height="20" Click="startButton_Click"/>
         <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
             <TextBlock TextWrapping="Wrap" Text="Unikaj oponentów" FontFamily="Arial"/>
@@ -35,8 +35,8 @@
                 <ImageBrush ImageSource="background.jpg"/>
             </Canvas.Background>
             <StackPanel x:Name="czlowiek" Orientation="Vertical">
-                <Ellipse Fill="White" Stroke="Black" Width="50" Height="50"/>
-                <Rectangle Fill="White" Stroke="Black" Width="50" Height="50"/>
+                <Ellipse Fill="White" Stroke="Black" Width="20" Height="20"/>
+                <Rectangle Fill="White" Stroke="Black" Width="20" Height="40"/>
             </StackPanel>
             <TextBlock x:Name="tekstKoncowy" TextWrapping="Wrap" Text="Koniec gry" Canvas.Left="102" Canvas.Top="76" FontSize="100" FontFamily="Arial Black" FontWeight="Bold" TextDecorations="{x:Null}" FontStyle="Italic"/>
             <Rectangle Height="50" Stroke="Black" Width="50" Canvas.Left="658" Canvas.Top="34" RenderTransformOrigin="0.5,0.5">
