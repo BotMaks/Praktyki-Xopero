@@ -7,10 +7,28 @@
         mc:Ignorable="d"
         Title="Strona Glowna" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="256*"/>
+            <RowDefinition Height="83*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150*"/>
-            <ColumnDefinition Width="107*"/>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="561*"/>
+            <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
+        <Button x:Name="startButton" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="74" Margin="28,46,17,17" Grid.Row="2" Height="20"/>
+        <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
+        <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
+            <TextBlock TextWrapping="Wrap" Text="Unikaj oponentów" FontFamily="Arial"/>
+            <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="ContentControl"/>
+        </StackPanel>
+        <Canvas x:Name="playArea" Margin="0" Grid.Row="1" Grid.ColumnSpan="3">
+            <Canvas.Background>
+                <ImageBrush ImageSource="background.jpg"/>
+            </Canvas.Background>
+        </Canvas>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gramy w komputer" VerticalAlignment="Top" Margin="21,33,0,0" FontSize="24" Grid.ColumnSpan="2" Width="214" Height="32"/>
 
     </Grid>
 </Window>
