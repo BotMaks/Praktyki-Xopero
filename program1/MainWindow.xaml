@@ -34,10 +34,24 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="background.jpg"/>
             </Canvas.Background>
-            <StackPanel Height="175" Orientation="Horizontal">
-                <Ellipse Fill="White" Stroke="Black" Width="50" Height="50" Margin="0,0,0,75"/>
-                <Rectangle Fill="White" Stroke="Black" Width="50" Height="50" Margin="0,75,0,0"/>
+            <StackPanel x:Name="czlowiek" Orientation="Vertical">
+                <Ellipse Fill="White" Stroke="Black" Width="50" Height="50"/>
+                <Rectangle Fill="White" Stroke="Black" Width="50" Height="50"/>
             </StackPanel>
+            <TextBlock x:Name="tekstKoncowy" TextWrapping="Wrap" Text="Koniec gry" Canvas.Left="102" Canvas.Top="76" FontSize="100" FontFamily="Arial Black" FontWeight="Bold" TextDecorations="{x:Null}" FontStyle="Italic"/>
+            <Rectangle Height="50" Stroke="Black" Width="50" Canvas.Left="658" Canvas.Top="34" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="45"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="meta.jpg"/>
+                </Rectangle.Fill>
+            </Rectangle>
         </Canvas>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gramy w komputer" VerticalAlignment="Top" Margin="21,33,0,0" FontSize="24" Grid.ColumnSpan="2" Width="214" Height="32"/>
 
