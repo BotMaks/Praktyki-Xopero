@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:program1"
         mc:Ignorable="d"
         Title="Strona Glowna" Height="450" Width="800">
+    <Window.Resources>
+        <ControlTemplate x:Key="Oponent" TargetType="{x:Type ContentControl}">
+            <Grid>
+                <Ellipse Height="70" Stroke="Black" Width="70" Fill="Blue"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80*"/>
@@ -21,12 +28,16 @@
         <ProgressBar Grid.Column="1" Grid.Row="2" Height="20"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
             <TextBlock TextWrapping="Wrap" Text="Unikaj oponentów" FontFamily="Arial"/>
-            <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="ContentControl"/>
+            <ContentControl HorizontalAlignment="Center" VerticalAlignment="Center" Content="ContentControl" Template="{DynamicResource Oponent}" Margin="0" Width="70" Height="70"/>
         </StackPanel>
         <Canvas x:Name="playArea" Margin="0" Grid.Row="1" Grid.ColumnSpan="3">
             <Canvas.Background>
                 <ImageBrush ImageSource="background.jpg"/>
             </Canvas.Background>
+            <StackPanel Height="175" Orientation="Horizontal">
+                <Ellipse Fill="White" Stroke="Black" Width="50" Height="50" Margin="0,0,0,75"/>
+                <Rectangle Fill="White" Stroke="Black" Width="50" Height="50" Margin="0,75,0,0"/>
+            </StackPanel>
         </Canvas>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gramy w komputer" VerticalAlignment="Top" Margin="21,33,0,0" FontSize="24" Grid.ColumnSpan="2" Width="214" Height="32"/>
 
