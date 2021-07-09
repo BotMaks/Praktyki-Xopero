@@ -1,0 +1,28 @@
+﻿<Window x:Class="ObstawianieWyscigow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObstawianieWyscigow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dom bukmacherski" VerticalAlignment="Top" FontSize="16" Margin="10,206,0,0"/>
+        <RadioButton x:Name="radioArek" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,318,0,0" FontSize="16"/>
+        <RadioButton x:Name="radioBartek" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,293,0,0" FontSize="16"/>
+        <RadioButton x:Name="radioJanek" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,268,0,0" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zakład między 5 a 15 zł" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="10,240,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Zakłady" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="267,240,0,0"/>
+        <Image HorizontalAlignment="Left" Height="191" Source="tor.jpg" Stretch="Fill" VerticalAlignment="Top" Width="772" Margin="10,10,0,0">
+        
+        </Image>
+        <TextBlock x:Name="labelZakladJanek" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Margin="267,267,0,0"><Run Text="TextBlock"/></TextBlock>
+        <TextBlock x:Name="labelZakladBartek" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" Margin="267,292,0,0"/>
+        <TextBlock x:Name="labelZakladArek" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" Margin="267,317,0,0"/>
+        <Button Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="199" Margin="551,267,0,0" Height="71"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" Margin="10,356,0,0"/>
+        <Button Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="61" Margin="85,357,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="zł stawia na zawodnika nr." VerticalAlignment="Top" FontSize="16" Margin="166,356,0,0"/>
+
+    </Grid>
+</Window>
