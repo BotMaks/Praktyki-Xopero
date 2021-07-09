@@ -27,15 +27,16 @@ namespace program1
         DispatcherTimer timerOponenta = new DispatcherTimer();
         DispatcherTimer timerCelu = new DispatcherTimer();
         bool zlapCzlowieka = false;
+        int najlepszyWynik = 0;
+        int wynik = 0;
+
         public MainWindow()
         {
             InitializeComponent();
-
+            tekstKoncowy.Visibility = Visibility.Collapsed;
             timerOponenta.Tick += TimerOponenta_Tick;
-            timerOponenta.Interval = TimeSpan.FromSeconds(2);
-
+            //timerOponenta.Interval = TimeSpan.FromSeconds(4 - wyborTrudnosci.SelectedIndex);
             timerCelu.Tick += TimerCelu_Tick;
-            timerCelu.Interval = TimeSpan.FromSeconds(.1);
         }
 
         private void TimerCelu_Tick(object sender, EventArgs e)
@@ -53,6 +54,8 @@ namespace program1
                 zlapCzlowieka = false;
                 startButton.Visibility = Visibility.Visible;
                 playArea.Children.Add(tekstKoncowy);
+                if (wynik>najlepszyWynik) { najlepszyWynik = wynik; }
+                najWynik.Text = "Najlepszy wynik: " + najlepszyWynik; 
             }
         }
 
@@ -63,16 +66,33 @@ namespace program1
 
         private void startButton_Click(object sender, RoutedEventArgs e)
         {
+            timerOponenta.Interval = TimeSpan.FromSeconds(4 - wyborTrudnosci.SelectedIndex);
+            if (wyborTrudnosci.SelectedIndex == 0)
+            {
+                timerCelu.Interval = TimeSpan.FromSeconds(0.15);
+            }
+            else if (wyborTrudnosci.SelectedIndex == 1)
+            {
+                timerCelu.Interval = TimeSpan.FromSeconds(0.1);
+            }
+            else if (wyborTrudnosci.SelectedIndex == 2)
+            {
+                timerCelu.Interval = TimeSpan.FromSeconds(0.08);
+            }
+            else if (wyborTrudnosci.SelectedIndex == 3)
+            {
+                timerCelu.Interval = TimeSpan.FromSeconds(0.05);
+            }
             RozpocznijGre();
         }
 
         private void RozpocznijGre() {
+            wynik = 0;
             czlowiek.IsHitTestVisible = true;
             zlapCzlowieka = false;
             pasekPostepu.Value = 0;
             startButton.Visibility = Visibility.Collapsed;
             playArea.Children.Clear();
-            //playArea.Children.Add(oponent);
             DodajOponenta();
             playArea.Children.Add(czlowiek);
             playArea.Children.Add(cel);
@@ -101,7 +121,7 @@ namespace program1
         private void AnimujOponenta(ContentControl oponent, double poczatek, double koniec, string infoDoAnimacji)
         {
             Storyboard storyboard = new Storyboard() { AutoReverse = true, RepeatBehavior = RepeatBehavior.Forever};
-            DoubleAnimation animacja = new DoubleAnimation() {From = poczatek, To = koniec, Duration = new Duration(TimeSpan.FromSeconds(random.Next(3,5)))};
+            DoubleAnimation animacja = new DoubleAnimation() {From = poczatek, To = koniec, Duration = new Duration(TimeSpan.FromSeconds(random.Next(4 - wyborTrudnosci.SelectedIndex, 6 - wyborTrudnosci.SelectedIndex)))};
             Storyboard.SetTarget(animacja, oponent);
             Storyboard.SetTargetProperty(animacja, new PropertyPath(infoDoAnimacji));
             storyboard.Children.Add(animacja);
@@ -120,6 +140,8 @@ namespace program1
         private void cel_MouseMove(object sender, MouseEventArgs e)
         {
             if (timerCelu.IsEnabled && zlapCzlowieka) {
+                wynik += 1 * (wyborTrudnosci.SelectedIndex + 1);
+                twojWynik.Text = "Twój wynik: "+wynik;
                 pasekPostepu.Value = 0;
                 Canvas.SetLeft(cel, random.Next(100, (int)playArea.ActualWidth - 100));
                 Canvas.SetTop(cel, random.Next(100, (int)playArea.ActualHeight - 100));
