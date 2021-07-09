@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using System.Drawing;
+using System.Configuration;
 
 namespace program1
 {
@@ -35,7 +36,6 @@ namespace program1
             InitializeComponent();
             tekstKoncowy.Visibility = Visibility.Collapsed;
             timerOponenta.Tick += TimerOponenta_Tick;
-            //timerOponenta.Interval = TimeSpan.FromSeconds(4 - wyborTrudnosci.SelectedIndex);
             timerCelu.Tick += TimerCelu_Tick;
         }
 
@@ -55,7 +55,8 @@ namespace program1
                 startButton.Visibility = Visibility.Visible;
                 playArea.Children.Add(tekstKoncowy);
                 if (wynik>najlepszyWynik) { najlepszyWynik = wynik; }
-                najWynik.Text = "Najlepszy wynik: " + najlepszyWynik; 
+                najWynik.Text = "Najlepszy wynik: " + najlepszyWynik;
+                
             }
         }
 
