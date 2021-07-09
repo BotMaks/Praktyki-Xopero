@@ -103,5 +103,14 @@
   <ItemGroup>
     <Resource Include="oponent.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="glowa.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="progresbar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="progresbar2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
