@@ -29,13 +29,10 @@
             <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
         <Button x:Name="startButton" Content="Start" HorizontalAlignment="Center" VerticalAlignment="Center" Width="74" Margin="28,46,17,17" Grid.Row="2" Height="20" Click="startButton_Click"/>
-        <ProgressBar x:Name="pasekPostepu" Grid.Column="1" Grid.Row="2" Height="20" Margin="45,45,45,15" BorderThickness="1" ValueChanged="pasekPostepu_ValueChanged" RenderTransformOrigin="0.5,0.5">
+        <ProgressBar x:Name="pasekPostepu" Grid.Column="1" Grid.Row="2" Height="20" Margin="45,45,45,15" BorderThickness="1" RenderTransformOrigin="0.5,0.5">
             <ProgressBar.Background>
                 <ImageBrush ImageSource="progresbar2.png" Stretch="None" TileMode="FlipX"/>
             </ProgressBar.Background>
-            <ProgressBar.Foreground>
-                <ImageBrush ImageSource="progresBar.png" TileMode="FlipX" Stretch="None"/>
-            </ProgressBar.Foreground>
         </ProgressBar>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="2">
             <StackPanel.Background>
