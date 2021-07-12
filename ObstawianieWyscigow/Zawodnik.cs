@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media.Animation;
+using System.Windows;
 
 namespace ObstawianieWyscigow
 {
@@ -11,13 +13,15 @@ namespace ObstawianieWyscigow
     {
         public int pozycjaStartowa;
         public int dlugoscTrasy;
-        public Image obraz;
+        public Image obraz = null;
         public int polozenie;
-        public Random random;
+        public Random random = new Random();
 
-        Zawodnik() { }
+        public Zawodnik() { }
 
-        public bool biegnij() {
+        public bool biegnij(double poczatek, double koniec, double czas) {
+            DoubleAnimation animacja = new DoubleAnimation() { From = poczatek, To = koniec, Duration = new Duration(TimeSpan.FromSeconds(czas)) };
+            
             return true;
         }
 

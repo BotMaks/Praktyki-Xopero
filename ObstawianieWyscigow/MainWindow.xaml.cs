@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace ObstawianieWyscigow
 {
@@ -26,6 +27,7 @@ namespace ObstawianieWyscigow
             Klient janek = new Klient("Janek", 50, przyciskJanka, tekstJanka);
             Klient bartek= new Klient("Bartek", 75, przyciskBartka, tekstBartka);
             Klient arek = new Klient("Arek", 45, przyciskArka, tekstArka);
+
             janek.aktualizujDane();
             bartek.aktualizujDane();
             arek.aktualizujDane();
@@ -34,6 +36,11 @@ namespace ObstawianieWyscigow
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
