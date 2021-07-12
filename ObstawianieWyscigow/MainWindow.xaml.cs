@@ -21,6 +21,8 @@ namespace ObstawianieWyscigow
     /// </summary>
     public partial class MainWindow : Window
     {
+        double minKwota=5;
+        double maxKwota=15;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +33,7 @@ namespace ObstawianieWyscigow
             janek.aktualizujDane();
             bartek.aktualizujDane();
             arek.aktualizujDane();
+            infoZaklad.Text=string.Format("Tylko zakłady od {0} do {1} zł", minKwota, maxKwota);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
