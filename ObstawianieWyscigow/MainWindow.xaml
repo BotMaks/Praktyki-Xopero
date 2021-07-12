@@ -1,0 +1,28 @@
+﻿<Window x:Class="ObstawianieWyscigow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ObstawianieWyscigow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Image HorizontalAlignment="Left" Source="tor.jpg" Stretch="Fill" Height="190" VerticalAlignment="Top" Width="772" Margin="10,10,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dom bukmacherski" VerticalAlignment="Top" FontSize="16" Margin="10,214,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="10,249,0,0"/>
+        <RadioButton x:Name="przyciskArka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,334,0,0" FontSize="16"/>
+        <RadioButton x:Name="przyciskBartka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,306,0,0" FontSize="16"/>
+        <RadioButton x:Name="przyciskJanka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,278,0,0" FontSize="16"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="243,249,0,0"><Run Text="Zakłady"/></TextBlock>
+        <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="561,249,0,0" Height="105" FontWeight="Bold" FontSize="24"/>
+        <TextBlock x:Name="imie" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="10,378,0,0" FontSize="16"/>
+        <Button Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="81,380,0,0"/>
+        <ComboBox x:Name="kwota" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="161,378,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="zł na zawodnika numer" VerticalAlignment="Top" FontSize="16" Margin="224,378,0,0"/>
+        <ComboBox x:Name="numerZawodnika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="392,377,0,0"/>
+        <Label x:Name="tekstArka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="243,332,0,0"/>
+        <Label x:Name="tekstBartka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="243,300,0,0"/>
+        <Label x:Name="tekstJanka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="243,272,0,0"/>
+
+    </Grid>
+</Window>

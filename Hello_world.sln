@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hello_world", "Hello_world\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "program1", "program1\program1.csproj", "{12D03112-FB63-4C16-8443-439CD196CF36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObstawianieWyscigow", "ObstawianieWyscigow\ObstawianieWyscigow.csproj", "{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{12D03112-FB63-4C16-8443-439CD196CF36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12D03112-FB63-4C16-8443-439CD196CF36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12D03112-FB63-4C16-8443-439CD196CF36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
