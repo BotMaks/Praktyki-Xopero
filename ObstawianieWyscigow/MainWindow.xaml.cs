@@ -24,7 +24,16 @@ namespace ObstawianieWyscigow
         {
             InitializeComponent();
             Klient janek = new Klient("Janek", 50, przyciskJanka, tekstJanka);
+            Klient bartek= new Klient("Bartek", 75, przyciskBartka, tekstBartka);
+            Klient arek = new Klient("Arek", 45, przyciskArka, tekstArka);
+            janek.aktualizujDane();
+            bartek.aktualizujDane();
+            arek.aktualizujDane();
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

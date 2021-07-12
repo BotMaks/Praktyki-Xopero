@@ -16,13 +16,17 @@
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="243,249,0,0"><Run Text="Zakłady"/></TextBlock>
         <Button Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="561,249,0,0" Height="105" FontWeight="Bold" FontSize="24"/>
         <TextBlock x:Name="imie" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="10,378,0,0" FontSize="16"/>
-        <Button Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="81,380,0,0"/>
+        <Button Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="81,380,0,0" Click="Button_Click"/>
         <ComboBox x:Name="kwota" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="161,378,0,0"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="zł na zawodnika numer" VerticalAlignment="Top" FontSize="16" Margin="224,378,0,0"/>
         <ComboBox x:Name="numerZawodnika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="392,377,0,0"/>
         <Label x:Name="tekstArka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="243,332,0,0"/>
         <Label x:Name="tekstBartka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="243,300,0,0"/>
         <Label x:Name="tekstJanka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="243,272,0,0"/>
+        <Image HorizontalAlignment="Left" Height="42" Source="zawodnik1.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="81,10,0,0"/>
+        <Image HorizontalAlignment="Left" Height="42" Source="zawodnik2.jpeg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="81,57,0,0"/>
+        <Image HorizontalAlignment="Left" Height="45" Source="zawodnik3.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="81,105,0,0"/>
+        <Image HorizontalAlignment="Left" Height="45" Source="zawodnik4.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="81,155,0,0"/>
 
     </Grid>
 </Window>
