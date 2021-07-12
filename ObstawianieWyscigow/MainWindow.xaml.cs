@@ -35,12 +35,34 @@ namespace ObstawianieWyscigow
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            //tworzenie zakladu
+
+            /*if (przyciskJanka.IsChecked==true) {
+                janek.postawZaklad(kwota.SelectedItem, numerZawodnika.SelectedItem);
+                janek.aktualizujDane();
+            }
+            else if (przyciskBartka.IsChecked == true) {
+                bartek.postawZaklad(kwota.SelectedItem, numerZawodnika.SelectedItem);
+                bartek.aktualizujDane();
+            }
+            else if(przyciskArka.IsChecked == true)
+            {
+                arek.postawZaklad(kwota.SelectedItem, numerZawodnika.SelectedItem);
+                arek.aktualizujDane();
+            }
+            else{
+                MessageBox.Show("Wybierz obstawiającego");    
+            }*/
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Zawodnik zaw4 = new Zawodnik();
+            string[] tab = {"zaw1", "zaw2", "zaw3", "zaw4"};
+            zaw4.biegnij(zawodnik1,80,640,"(Canvas.Top)");
+            Random random = new Random();
+            int zwyciezca = random.Next(4);
+            MessageBox.Show(string.Format("Zawodnik numer {0} wygrał wyscig!", zwyciezca+1));
         }
     }
 }

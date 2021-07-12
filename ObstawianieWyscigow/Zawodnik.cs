@@ -19,12 +19,18 @@ namespace ObstawianieWyscigow
 
         public Zawodnik() { }
 
-        public bool biegnij(double poczatek, double koniec, double czas) {
-            DoubleAnimation animacja = new DoubleAnimation() { From = poczatek, To = koniec, Duration = new Duration(TimeSpan.FromSeconds(czas)) };
-            
-            return true;
+        public void biegnij(Image zawodnik, double poczatek, double koniec, string infoDoAnimacji) {
+            //nie działa
+
+            Storyboard storyboard = new Storyboard();
+            DoubleAnimation animacja = new DoubleAnimation() { From = poczatek, To = koniec, Duration = new Duration(TimeSpan.FromSeconds(5)) };
+            Storyboard.SetTarget(animacja, zawodnik);
+            Storyboard.SetTargetProperty(animacja, new PropertyPath(infoDoAnimacji));
+            storyboard.Begin();
         }
 
-        public void doStartu() { }
+        public void doStartu(Image zawodnik) {
+            
+        }
     }
 }

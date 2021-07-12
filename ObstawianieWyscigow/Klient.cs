@@ -22,16 +22,11 @@ namespace ObstawianieWyscigow
             this.konto = konto;
             this.mojPrzycisk = mojPrzycisk;
             this.mojTekst = mojTekst;
+            this.mojZaklad = new Zaklad(0,0,this);
         }
         public void aktualizujDane() {
             mojPrzycisk.Content = string.Format("{0} ma {1} zł", imie, konto);
-            if (mojZaklad != null) {
-                mojTekst.Content = string.Format("{0} stawia {1} zł na zawodnika numer {2}", imie, mojZaklad.ilosc, mojZaklad.nrZawodnika+1);
-            }
-            else
-            {
-                mojTekst.Content = string.Format("{0} nie zawarł zakładu", imie);
-            }
+            mojTekst.Content = mojZaklad.opisZakladu();
         }
         public void wyczyscZaklad() {
             mojZaklad = null;
