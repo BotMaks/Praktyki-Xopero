@@ -11,26 +11,22 @@ namespace ObstawianieWyscigow
 {
     class Zawodnik
     {
-        public int pozycjaStartowa;
-        public int dlugoscTrasy;
-        public Image obraz = null;
-        public int polozenie;
-        public Random random = new Random();
-
+        public double czas;
         public Zawodnik() { }
 
-        public void biegnij(Image zawodnik, double poczatek, double koniec, string infoDoAnimacji) {
+        public void biegnij(ContentControl zawodnik, double czas) {
             //nie działa
-
+            this.czas = czas;
             Storyboard storyboard = new Storyboard();
-            DoubleAnimation animacja = new DoubleAnimation() { From = poczatek, To = koniec, Duration = new Duration(TimeSpan.FromSeconds(5)) };
+            DoubleAnimation animacja = new DoubleAnimation() { From = 80, To = 640, Duration = new Duration(TimeSpan.FromSeconds(czas)) };
             Storyboard.SetTarget(animacja, zawodnik);
-            Storyboard.SetTargetProperty(animacja, new PropertyPath(infoDoAnimacji));
+            Storyboard.SetTargetProperty(animacja, new PropertyPath("(Canvas.Left)"));
+            storyboard.Children.Add(animacja);
             storyboard.Begin();
         }
 
-        public void doStartu(Image zawodnik) {
-            
+        public void doStartu(ContentControl zawodnik) {
+            Canvas.SetLeft(zawodnik, 80);
         }
     }
 }

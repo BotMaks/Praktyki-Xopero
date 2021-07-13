@@ -7,19 +7,45 @@
         mc:Ignorable="d"
         Title="Dom bukmacherski" Height="450" Width="800">
     <Grid>
-        <Image HorizontalAlignment="Left" Source="tor.jpg" Stretch="Fill" Height="190" VerticalAlignment="Top" Width="772" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dom bukmacherski" VerticalAlignment="Top" FontSize="16" Margin="10,214,0,0" Grid.ColumnSpan="2" Height="21" Width="136"/>
+        <Canvas x:Name="torCanvas" Margin="0,0,0,210">
+            <Image HorizontalAlignment="Left" Source="tor.jpg" Stretch="Fill" Height="190" VerticalAlignment="Top" Width="772" Margin="10,10,0,0" Grid.ColumnSpan="2" Panel.ZIndex="-1"/>
+            <ContentControl x:Name="zawodnik1">
+                <Image HorizontalAlignment="Left" Height="45" Source="zawodnik1.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,7,0,0" Grid.Column="1"/>
+            </ContentControl>
+            <ContentControl x:Name="zawodnik2">
+                <Image HorizontalAlignment="Left" Height="42" Source="zawodnik2.jpeg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,57,0,0" Grid.Column="1"/>
+            </ContentControl>
+            <ContentControl x:Name="zawodnik3">
+                <Image HorizontalAlignment="Left" Height="50" Source="zawodnik3.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,102,0,0" Grid.Column="1"/>
+            </ContentControl>
+            <ContentControl x:Name="zawodnik4">
+                <Image HorizontalAlignment="Left" Height="45" Source="zawodnik4.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,155,0,0" Grid.Column="1"/>
+            </ContentControl>
+        </Canvas>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Dom bukmacherski" VerticalAlignment="Top" FontSize="16" Margin="10,214,0,0" Height="21" Width="145"/>
         <TextBlock x:Name="infoZaklad" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="10,249,0,0" Height="21" Width="208"/>
-        <RadioButton x:Name="przyciskArka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,334,0,0" FontSize="16" Height="20" Width="150"/>
-        <RadioButton x:Name="przyciskBartka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,306,0,0" FontSize="16" Height="20" Width="150"/>
-        <RadioButton x:Name="przyciskJanka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,278,0,0" FontSize="16" Height="20" Width="150"/>
+        <RadioButton x:Name="przyciskArka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,334,0,0" FontSize="16" Height="20" Width="150" Checked="przyciskArka_Checked"/>
+        <RadioButton x:Name="przyciskBartka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,306,0,0" FontSize="16" Height="20" Width="150" Checked="przyciskBartka_Checked"/>
+        <RadioButton x:Name="przyciskJanka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,278,0,0" FontSize="16" Height="20" Width="150" Checked="przyciskJanka_Checked"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="245,249,0,0" Height="21" Width="59"><Run Text="Zakłady"/></TextBlock>
         <Button x:Name="start" Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="500,249,0,0" Height="105" FontWeight="Bold" FontSize="24" Click="Button_Click_1"/>
-        <TextBlock x:Name="imie" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="10,378,0,0" FontSize="16" Height="21" Width="66"/>
-        <Button x:Name="zatwierdzZaklad" Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="1,380,0,0" Click="Button_Click" Grid.Column="1" Height="20"/>
-        <ComboBox x:Name="kwota" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="61,378,0,0" Grid.Column="1" Height="22"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="zł na zawodnika numer" VerticalAlignment="Top" FontSize="16" Margin="124,378,0,0" Grid.Column="1" Height="21" Width="163"/>
-        <ComboBox x:Name="numerZawodnika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="292,377,0,0" Grid.Column="1" Height="22" >
+        <TextBlock x:Name="imie" HorizontalAlignment="Left" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Margin="14,377,0,0" FontSize="16" Height="21" Width="66"/>
+        <Button x:Name="zatwierdzZaklad" Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="80,378,0,0" Click="Button_Click" Height="20"/>
+        <ComboBox x:Name="kwota" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="161,378,0,0" Height="22">
+            <ComboBoxItem>5</ComboBoxItem>
+            <ComboBoxItem>6</ComboBoxItem>
+            <ComboBoxItem>7</ComboBoxItem>
+            <ComboBoxItem>8</ComboBoxItem>
+            <ComboBoxItem>9</ComboBoxItem>
+            <ComboBoxItem>10</ComboBoxItem>
+            <ComboBoxItem>11</ComboBoxItem>
+            <ComboBoxItem>12</ComboBoxItem>
+            <ComboBoxItem>13</ComboBoxItem>
+            <ComboBoxItem>14</ComboBoxItem>
+            <ComboBoxItem>15</ComboBoxItem>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="zł na zawodnika numer" VerticalAlignment="Top" FontSize="16" Margin="224,378,0,0" Height="21" Width="163"/>
+        <ComboBox x:Name="numerZawodnika" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="392,377,0,0" Height="22" >
             <ComboBoxItem>1</ComboBoxItem>
             <ComboBoxItem>2</ComboBoxItem>
             <ComboBoxItem>3</ComboBoxItem>
@@ -28,10 +54,6 @@
         <Label x:Name="tekstArka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="245,332,0,0" Height="31" Width="215"/>
         <Label x:Name="tekstBartka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="245,300,0,0" Height="31" Width="215"/>
         <Label x:Name="tekstJanka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="245,272,0,0" Height="31" Width="215"/>
-        <Image x:Name="zawodnik1" HorizontalAlignment="Left" Height="45" Source="zawodnik1.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,7,0,0" Grid.Column="1"/>
-        <Image x:Name="zawodnik2" HorizontalAlignment="Left" Height="42" Source="zawodnik2.jpeg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,57,0,0" Grid.Column="1"/>
-        <Image x:Name="zawodnik3" HorizontalAlignment="Left" Height="50" Source="zawodnik3.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,102,0,0" Grid.Column="1"/>
-        <Image x:Name="zawodnik4" HorizontalAlignment="Left" Height="45" Source="zawodnik4.jpg" Stretch="Fill" VerticalAlignment="Top" Width="54" Margin="80,155,0,0" Grid.Column="1"/>
 
     </Grid>
 </Window>

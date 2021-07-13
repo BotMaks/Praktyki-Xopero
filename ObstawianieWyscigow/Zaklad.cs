@@ -8,7 +8,7 @@ namespace ObstawianieWyscigow
 {
     class Zaklad
     {
-        public int ilosc = 0;
+        public int ilosc;
         public int nrZawodnika;
         public Klient klientZakladu;
 
@@ -18,6 +18,12 @@ namespace ObstawianieWyscigow
                 return string.Format("{0} postawił {1} zł na zawodnika numer {2}", klientZakladu.imie, ilosc, nrZawodnika);
             }
         }
+        public Zaklad() { }
+        public Zaklad(int ilosc,int nrZawodnika,Klient klientZakladu) {
+            this.ilosc = ilosc;
+            this.nrZawodnika = nrZawodnika;
+            this.klientZakladu = klientZakladu;
+        }
         public int wyplata(int zwyciezca) {
             if (zwyciezca == nrZawodnika) {
                 return ilosc;
@@ -26,13 +32,6 @@ namespace ObstawianieWyscigow
             {
                 return ilosc * (-1);
             }
-        }
-        public Zaklad() { }
-
-        public Zaklad(int ilosc,int nrZawodnika,Klient klientZakladu) {
-            this.ilosc = ilosc;
-            this.nrZawodnika = nrZawodnika;
-            this.klientZakladu = klientZakladu;
         }
     }
 }
