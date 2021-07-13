@@ -15,10 +15,10 @@ namespace ObstawianieWyscigow
         public Zawodnik() { }
 
         public void biegnij(ContentControl zawodnik, double czas) {
-            //nie działa
+            
             this.czas = czas;
             Storyboard storyboard = new Storyboard();
-            DoubleAnimation animacja = new DoubleAnimation() { From = 80, To = 640, Duration = new Duration(TimeSpan.FromSeconds(czas)) };
+            DoubleAnimation animacja = new DoubleAnimation() { From = 0, To = 640, Duration = new Duration(TimeSpan.FromSeconds(czas)) };
             Storyboard.SetTarget(animacja, zawodnik);
             Storyboard.SetTargetProperty(animacja, new PropertyPath("(Canvas.Left)"));
             storyboard.Children.Add(animacja);
@@ -26,7 +26,7 @@ namespace ObstawianieWyscigow
         }
 
         public void doStartu(ContentControl zawodnik) {
-            Canvas.SetLeft(zawodnik, 80);
+            Canvas.SetLeft(zawodnik, 0);
         }
     }
 }

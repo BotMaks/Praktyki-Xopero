@@ -53,7 +53,6 @@ namespace ObstawianieWyscigow
             else if (przyciskBartka.IsChecked == true && kwota.SelectedIndex > -1 && numerZawodnika.SelectedIndex > -1) {
                 prawda = bartek.postawZaklad(kwota.SelectedIndex+5, numerZawodnika.SelectedIndex+1);
                 if (prawda == false) { MessageBox.Show("Zakład nie został prawidłowo wprowadzony"); }
-
                 bartek.aktualizujDane();
             }
             else if(przyciskArka.IsChecked == true && kwota.SelectedIndex > -1 && numerZawodnika.SelectedIndex > -1)
@@ -81,28 +80,29 @@ namespace ObstawianieWyscigow
             double[] wyniki = new double[4];
             Random random = new Random();
             int zwyciezca = 0;
-            int frajer = 0;
+
+            for (int i=0; i<4; i++) {
+                zawodnicy[i].doStartu(tab[i]);
+            }
 
             for (int i=0; i<4; i++)
             {
-                wyniki[i] = random.NextDouble()*(8-4)+4;
-                zawodnicy[i].biegnij(tab[i], wyniki[i]);
                 
+                wyniki[i] = random.NextDouble()*(8-4)+4;
+                for (int j=0;j<i;j++) {
+                    powtórz:
+                    if (wyniki[i]==wyniki[j]) {
+                        wyniki[i] = random.NextDouble() * (8 - 4) + 4;
+                        goto powtórz;
+                    }
+                }
+                zawodnicy[i].biegnij(tab[i], wyniki[i]);
             }
             for(int i=1; i < 4; i++)
             {
                 if (wyniki[zwyciezca] > wyniki[i]) {
                     zwyciezca = i;
                 }
-                if (wyniki[frajer] < wyniki[i])
-                {
-                    frajer = i;
-                }
-            }
-
-                MessageBox.Show(string.Format("Zawodnik numer {0} wygrał wyscig!\nA {1} to frajer", zwyciezca+1, frajer+1));
-            for (int i; i<4,i++) {
-            zawodnicy[i].doStartu(tab[i]);
             }
 
         }
@@ -121,5 +121,6 @@ namespace ObstawianieWyscigow
         {
             imie.Text = "Arek";
         }
+
     }
 }
