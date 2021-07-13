@@ -22,27 +22,29 @@ namespace ObstawianieWyscigow
             this.konto = konto;
             this.mojPrzycisk = mojPrzycisk;
             this.mojTekst = mojTekst;
-            this.mojZaklad = new Zaklad(0,0,this);
+            mojZaklad = new Zaklad(0,0,this);
         }
         public void aktualizujDane() {
             mojPrzycisk.Content = string.Format("{0} ma {1} zł", imie, konto);
             mojTekst.Content = mojZaklad.opisZakladu();
         }
         public void wyczyscZaklad() {
-            mojZaklad = null;
+            mojZaklad = new Zaklad(0,0,this);
+            aktualizujDane();
         }
 
         public bool postawZaklad(int ilosc, int zawodnik) {
 
             if (konto >= ilosc)
             {
-                Zaklad mojZaklad = new Zaklad(ilosc, zawodnik, this);
+                mojZaklad = new Zaklad(ilosc, zawodnik, this);
                 return true;
             }
             else { return false; }
         }
         public void pobierzZaklad(int zwyciezca) {
             konto += mojZaklad.wyplata(zwyciezca);
+            aktualizujDane();
         }
     }
 }

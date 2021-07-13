@@ -28,7 +28,7 @@
         <RadioButton x:Name="przyciskBartka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,306,0,0" FontSize="16" Height="20" Width="150" Checked="przyciskBartka_Checked"/>
         <RadioButton x:Name="przyciskJanka" Content="RadioButton" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,278,0,0" FontSize="16" Height="20" Width="150" Checked="przyciskJanka_Checked"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="245,249,0,0" Height="21" Width="59"><Run Text="Zakłady"/></TextBlock>
-        <Button x:Name="start" Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="500,249,0,0" Height="105" FontWeight="Bold" FontSize="24" Click="Button_Click_1"/>
+        <Button x:Name="start" Content="Start!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" Margin="560,249,0,0" Height="105" FontWeight="Bold" FontSize="24" Click="Button_Click_1"/>
         <TextBlock x:Name="imie" HorizontalAlignment="Left" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Margin="14,377,0,0" FontSize="16" Height="21" Width="66"/>
         <Button x:Name="zatwierdzZaklad" Content="stawia" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="80,378,0,0" Click="Button_Click" Height="20"/>
         <ComboBox x:Name="kwota" HorizontalAlignment="Left" VerticalAlignment="Top" Width="58" Margin="161,378,0,0" Height="22">
@@ -51,9 +51,9 @@
             <ComboBoxItem>3</ComboBoxItem>
             <ComboBoxItem>4</ComboBoxItem>
         </ComboBox>
-        <Label x:Name="tekstArka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="245,332,0,0" Height="31" Width="215"/>
-        <Label x:Name="tekstBartka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="245,300,0,0" Height="31" Width="215"/>
-        <Label x:Name="tekstJanka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16" Margin="245,272,0,0" Height="31" Width="215"/>
+        <Label x:Name="tekstArka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="245,332,0,0" Height="31" Width="294"/>
+        <Label x:Name="tekstBartka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="245,300,0,0" Height="31" Width="294"/>
+        <Label x:Name="tekstJanka" Content="Label" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" Margin="245,272,0,0" Height="31" Width="294"/>
 
     </Grid>
 </Window>

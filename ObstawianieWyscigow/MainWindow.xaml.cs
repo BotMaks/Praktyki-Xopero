@@ -30,9 +30,9 @@ namespace ObstawianieWyscigow
         public MainWindow()
         {
             InitializeComponent();
-            this.janek = new Klient("Janek", 50, przyciskJanka, tekstJanka);
-            this.bartek= new Klient("Bartek", 75, przyciskBartka, tekstBartka);
-            this.arek = new Klient("Arek", 45, przyciskArka, tekstArka);
+            janek = new Klient("Janek", 50, przyciskJanka, tekstJanka);
+            bartek= new Klient("Bartek", 75, przyciskBartka, tekstBartka);
+            arek = new Klient("Arek", 45, przyciskArka, tekstArka);
 
             janek.aktualizujDane();
             bartek.aktualizujDane();
@@ -47,18 +47,18 @@ namespace ObstawianieWyscigow
             if (przyciskJanka.IsChecked== true && kwota.SelectedIndex > -1 && numerZawodnika.SelectedIndex > -1)
             {
                 prawda = janek.postawZaklad(kwota.SelectedIndex+5,numerZawodnika.SelectedIndex+1);
-                if (prawda == false) { MessageBox.Show("Zakład nie został prawidłowo wprowadzony"); }
+                if (prawda == false) { MessageBox.Show("Nie posiadasz odpowiedniej ilości gotówki!"); }
                 janek.aktualizujDane();
             }
             else if (przyciskBartka.IsChecked == true && kwota.SelectedIndex > -1 && numerZawodnika.SelectedIndex > -1) {
                 prawda = bartek.postawZaklad(kwota.SelectedIndex+5, numerZawodnika.SelectedIndex+1);
-                if (prawda == false) { MessageBox.Show("Zakład nie został prawidłowo wprowadzony"); }
+                if (prawda == false) { MessageBox.Show("Nie posiadasz odpowiedniej ilości gotówki!"); }
                 bartek.aktualizujDane();
             }
             else if(przyciskArka.IsChecked == true && kwota.SelectedIndex > -1 && numerZawodnika.SelectedIndex > -1)
             {
                 prawda = arek.postawZaklad(kwota.SelectedIndex+5, numerZawodnika.SelectedIndex+1);
-                if (prawda == false) { MessageBox.Show("Zakład nie został prawidłowo wprowadzony"); }
+                if (prawda == false) { MessageBox.Show("Nie posiadasz odpowiedniej ilości gotówki!"); }
                 arek.aktualizujDane();
             }
             else{
@@ -104,6 +104,14 @@ namespace ObstawianieWyscigow
                     zwyciezca = i;
                 }
             }
+            zwyciezca++;
+            MessageBox.Show(string.Format("Zawodnik nr {0} wygrał!",zwyciezca));
+            janek.pobierzZaklad(zwyciezca);
+            bartek.pobierzZaklad(zwyciezca);
+            arek.pobierzZaklad(zwyciezca);
+            janek.wyczyscZaklad();
+            bartek.wyczyscZaklad();
+            arek.wyczyscZaklad();
 
         }
 
