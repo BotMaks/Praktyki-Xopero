@@ -16,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using System.Drawing;
 using System.Configuration;
+using System.IO;
 
 namespace program1
 {
@@ -28,7 +29,9 @@ namespace program1
         DispatcherTimer timerOponenta = new DispatcherTimer();
         DispatcherTimer timerCelu = new DispatcherTimer();
         bool zlapCzlowieka = false;
-        int najlepszyWynik = 0;
+
+        static string czytaj = File.ReadAllText(@"C:\Users\xopero\source\repos\Praktyki-Xopero\program1\najWynik.txt");
+        int najlepszyWynik = Convert.ToInt32(czytaj);
         int wynik = 0;
 
         public MainWindow()
@@ -56,7 +59,7 @@ namespace program1
                 playArea.Children.Add(tekstKoncowy);
                 if (wynik>najlepszyWynik) { najlepszyWynik = wynik; }
                 najWynik.Text = "Najlepszy wynik: " + najlepszyWynik;
-                
+                File.WriteAllText(@"C:\Users\xopero\source\repos\Praktyki-Xopero\program1\najWynik.txt", Convert.ToString(najlepszyWynik));
             }
         }
 
