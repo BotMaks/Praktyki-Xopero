@@ -8,18 +8,28 @@
         Title="MainWindow" Height="250" Width="300">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="220" VerticalAlignment="Top" Width="290">
-            <TabItem Header="Opcja1">
+            <TabItem Header="Zwykła impreza">
                 <Grid Background="#FFE5E5E5">
-                    <TextBlock x:Name="kosztImprezy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="64,131,0,0" FontSize="16" Loaded="kosztImprezy_Loaded"/>
-                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ilość osób" VerticalAlignment="Top" FontSize="16" Margin="10,10,0,0"/>
-                    <TextBox x:Name="ilośćOsób" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="10,36,0,0" TextChanged="ilośćOsób_TextChanged"/>
-                    <CheckBox x:Name="dekoracje" Content="Dekoracje fantazyjne" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,74,0,0" Click="dekoracje_Click"/>
-                    <CheckBox x:Name="opcjaZdrowa" Content="Opcja zdrowa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0" Click="opcjaZdrowa_Click"/>
+                    <TextBlock x:Name="kosztImprezy" HorizontalAlignment="Left" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Margin="64,131,0,0" FontSize="16" Grid.ColumnSpan="2"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ilość osób" VerticalAlignment="Top" FontSize="16" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="ilośćOsób" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="10,36,0,0" TextChanged="ilośćOsób_TextChanged" Grid.ColumnSpan="2"/>
+                    <CheckBox x:Name="dekoracje" Content="Dekoracje fantazyjne" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,74,0,0" Click="dekoracje_Click" Grid.ColumnSpan="2"/>
                     <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Koszt" VerticalAlignment="Top" Margin="10,131,0,0" FontSize="16" FontWeight="Bold"/>
+                    <CheckBox x:Name="opcjaZdrowa" Content="Opcja zdrowa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,94,0,0" Click="opcjaZdrowa_Click" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Opcja2">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Urodziny">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="kosztUrodziny" HorizontalAlignment="Left" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" FontSize="16" Margin="60,115,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ilość osób" VerticalAlignment="Top" FontSize="16" Margin="10,10,0,0"/>
+                    <TextBox x:Name="napis" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Margin="160,36,0,0" TextChanged="napis_TextChanged"/>
+                    <TextBox x:Name="ilośćOsóbUrodziny" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120" Margin="10,36,0,0" TextChanged="ilośćOsóbUrodziny_TextChanged"/>
+                    <CheckBox x:Name="dekoracjeUrodziny" Content="Dekoracje fantazyjne" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,75,0,0" Click="dekoracjeUrodziny_Click"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Napis na torcie" VerticalAlignment="Top" FontSize="16" Margin="160,10,0,0"/>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Koszt" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Margin="10,115,0,0"/>
+
+
+                </Grid>
             </TabItem>
         </TabControl>
 

@@ -20,14 +20,11 @@ namespace Program_dla_Krystyny
     /// </summary>
     public partial class MainWindow : Window
     {
-        Impreza impreza = new Impreza();
+        Zwykla impreza = new Zwykla();
+        Urodziny urodziny = new Urodziny();
         public MainWindow()
         {
             InitializeComponent();
-        }
-        private void kosztImprezy_Loaded(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void opcjaZdrowa_Click(object sender, RoutedEventArgs e)
@@ -45,7 +42,7 @@ namespace Program_dla_Krystyny
             }
             catch(Exception)
             {
-                MessageBox.Show("Wprowadź poprawne dane!");
+                MessageBox.Show("Wprowadź prawidłową ilość osób!");
             }
         }
 
@@ -53,6 +50,30 @@ namespace Program_dla_Krystyny
         {
             impreza.ustawDekoracje(dekoracje.IsChecked.Value);
             kosztImprezy.Text = impreza.obliczCałkowityKoszt();
+        }
+
+        private void ilośćOsóbUrodziny_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try {
+                urodziny.ustawIlośćOsób(Convert.ToInt32(ilośćOsóbUrodziny.Text));
+                kosztUrodziny.Text = urodziny.obliczCałkowityKoszt();
+            }
+            catch (Exception) {
+                MessageBox.Show("Wprowadź prawidłową ilość osób!");
+            }
+        }
+
+        private void dekoracjeUrodziny_Click(object sender, RoutedEventArgs e)
+        {
+            urodziny.ustawDekoracje(dekoracjeUrodziny.IsChecked.Value);
+            kosztUrodziny.Text = urodziny.obliczCałkowityKoszt();
+        }
+
+        private void napis_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            bool i = urodziny.zmieńNapis(napis.Text);
+            if (i==false) { MessageBox.Show("Za długi napis!"); }
+            kosztUrodziny.Text = urodziny.obliczCałkowityKoszt();
         }
     }
 }
