@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObstawianieWyscigow", "Obst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program dla Krystyny", "Program dla Krystyny\Program dla Krystyny.csproj", "{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ul", "Ul\Ul.csproj", "{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
