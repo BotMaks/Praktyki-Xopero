@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "program1", "program1\progra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObstawianieWyscigow", "ObstawianieWyscigow\ObstawianieWyscigow.csproj", "{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program dla Krystyny", "Program dla Krystyny\Program dla Krystyny.csproj", "{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{81BB03F1-25FA-4E57-AD30-0AD7FAE8C70A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22891B9F-F9A4-4B9A-891F-D9BD7F93FE98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
