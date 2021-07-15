@@ -9,10 +9,10 @@ namespace Ul
     class Robotnica:Pszczoła
     {
         private string[] prace;
-        private int zmianyDoPrzepracowania;
-        private int zmianyPrzepracowane;
-        private string aktualnaPraca="";
+        private int zmianyDoPrzepracowania=0;
+        public string aktualnaPraca="";
         
+        public Robotnica() { }
         public Robotnica(double waga, string[] prace):base(waga) {
             this.prace = prace;
         }
@@ -30,23 +30,25 @@ namespace Ul
 
             return false;
         }
-        public void pracuj()
+        public bool pracuj()
         {
-            if (zmianyDoPrzepracowania > zmianyPrzepracowane) { zmianyPrzepracowane++; }
-        }
-
-        public bool czySkończyłes() {
-
-            if (zmianyDoPrzepracowania == zmianyPrzepracowane)
-            {
-                aktualnaPraca = "";
-                zmianyDoPrzepracowania = 0;
+            if (zmianyDoPrzepracowania > 0) 
+            { 
+                zmianyDoPrzepracowania--;
                 return true;
             }
-            else
+            return false;
+        }
+
+        public int ileZmianZostało() {
+
+            if (zmianyDoPrzepracowania == 0)
             {
-                return false;
+                aktualnaPraca = "";
             }
+            
+            return zmianyDoPrzepracowania;
+            
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Ul
         protected static double konsumpcjaMioduNaMg = 0.25;
         protected double waga;
 
+        public Pszczoła() { }
         public Pszczoła(double waga) {
             this.waga = waga;
         }
