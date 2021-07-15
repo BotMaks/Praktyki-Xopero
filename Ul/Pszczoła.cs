@@ -16,7 +16,7 @@ namespace Ul
             this.waga = waga;
         }
 
-        public double konsumpcjaMiodu()
+        public virtual double konsumpcjaMiodu()
         {
             return konsumpcjaMioduNaMg * waga;
         }

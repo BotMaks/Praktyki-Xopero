@@ -55,9 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IWojownik.cs" />
+    <Compile Include="IZbieracz.cs" />
     <Compile Include="Królowa.cs" />
     <Compile Include="Pszczoła.cs" />
     <Compile Include="Robotnica.cs" />
+    <Compile Include="WojZbiera.cs" />
+    <Compile Include="Zbieracz.cs" />
+    <Compile Include="Wojownik.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -26,11 +26,11 @@ namespace Ul
         {
             InitializeComponent();
             Robotnica[] robotnice = new Robotnica[4]; 
-            robotnice[0] = new Robotnica(0.1, new String[] {"Zbieranie nektaru", "Wytwarzanie miodu"});
-            robotnice[1] = new Robotnica(0.1, new String[] {"Pielęgnacja jaj", "Nauczanie pszczółek"});
-            robotnice[2] = new Robotnica(0.1, new String[] { "Utrzymywanie ula", "Patrol z żądłami" });
-            robotnice[3] = new Robotnica(0.1, new String[] {"Zbieranie nektaru", "Wytwarzanie miodu", "Pielęgnacja jaj", "Nauczanie pszczółek", "Utrzymywanie ula", "Patrol z żądłami"});
-            królowa = new Królowa(0.18, robotnice);
+            robotnice[0] = new Robotnica(132, new String[] {"Zbieranie nektaru", "Wytwarzanie miodu"});
+            robotnice[1] = new Robotnica(100, new String[] {"Pielęgnacja jaj", "Nauczanie pszczółek"});
+            robotnice[2] = new Robotnica(115, new String[] { "Utrzymywanie ula", "Patrol z żądłami" });
+            robotnice[3] = new Robotnica(120, new String[] {"Zbieranie nektaru", "Wytwarzanie miodu", "Pielęgnacja jaj", "Nauczanie pszczółek", "Utrzymywanie ula", "Patrol z żądłami"});
+            królowa = new Królowa(210, robotnice);
         }
 
         private void przypiszPracę_Click(object sender, RoutedEventArgs e)

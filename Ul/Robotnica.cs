@@ -10,8 +10,10 @@ namespace Ul
     {
         private string[] prace;
         private int zmianyDoPrzepracowania=0;
+        private int zmianyPrzepracowane=0;
         public string aktualnaPraca="";
-        
+        private const double pobórNaZmiane = 0.65;
+
         public Robotnica() { }
         public Robotnica(double waga, string[] prace):base(waga) {
             this.prace = prace;
@@ -24,6 +26,7 @@ namespace Ul
                 {
                     aktualnaPraca = pracaDoZrobienia;
                     zmianyDoPrzepracowania = ileZmian;
+                    zmianyPrzepracowane = 0;
                     return true;
                 }
             }
@@ -35,7 +38,12 @@ namespace Ul
             if (zmianyDoPrzepracowania > 0) 
             { 
                 zmianyDoPrzepracowania--;
+                zmianyPrzepracowane++;
                 return true;
+            }
+            else
+            {
+                zmianyPrzepracowane = 0;
             }
             return false;
         }
@@ -49,6 +57,14 @@ namespace Ul
             
             return zmianyDoPrzepracowania;
             
+        }
+
+        public override double konsumpcjaMiodu()
+        {
+            double pobórMiodu = base.konsumpcjaMiodu();
+            pobórMiodu += pobórNaZmiane * zmianyPrzepracowane;
+
+            return pobórMiodu;
         }
     }
 }

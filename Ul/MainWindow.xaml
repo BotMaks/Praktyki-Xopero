@@ -23,7 +23,7 @@
         <Button x:Name="następnaZmiana" HorizontalAlignment="Left" VerticalAlignment="Top" Width="160" Margin="401,31,0,0" Height="87" FontWeight="Bold" FontSize="16" Click="następnaZmiana_Click">
             <TextBlock Text="Przepracuj następną zmianę" Width="100" TextWrapping="Wrap" TextAlignment="Center"/>
         </Button>
-        <TextBlock x:Name="raportZmiany" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,143,0,0" Width="551" Height="177" FontSize="16"/>
+        <TextBlock x:Name="raportZmiany" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,143,0,0" Width="556" Height="177" FontSize="16" Background="#FFE0DEDE"/>
 
     </Grid>
 </Window>

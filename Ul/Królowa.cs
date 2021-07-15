@@ -32,12 +32,15 @@ namespace Ul
         public string pracuj() {
             raport = string.Format("Zmiana numer {0}:\n", nrZmiany);
             int i = 1;
+            double zużytyMiód = konsumpcjaMiodu();
             foreach (Robotnica robotnica in robotnice) {
                 robotnica.pracuj();
-                if (robotnica.ileZmianZostało()==0) 
+                zużytyMiód += robotnica.konsumpcjaMiodu();
+                 if (robotnica.ileZmianZostało()==0) 
                 {
                     raport += string.Format("Robotnica numer {0} nic nie robi.\n", i);
-                }else if (robotnica.ileZmianZostało() == 1)
+                }
+                else if (robotnica.ileZmianZostało() == 1)
                 {
                     raport += string.Format("Robotnica numer {0} skończy {1} po tej zmianie.\n", i, robotnica.aktualnaPraca);
                 }
@@ -47,6 +50,7 @@ namespace Ul
                 }
                 i++;
             }
+            raport += string.Format("Całkowite zużycie miodu: {0} jednostek.", zużytyMiód);
             nrZmiany++;
             return raport;
         }
