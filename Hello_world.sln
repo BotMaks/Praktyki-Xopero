@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Program dla Krystyny", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ul", "Ul\Ul.csproj", "{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dom", "Dom\Dom.csproj", "{65932A85-71A4-4032-B9CF-B2F066855819}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1724D4F6-0C05-4858-9CEB-E64CEC72AFEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65932A85-71A4-4032-B9CF-B2F066855819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65932A85-71A4-4032-B9CF-B2F066855819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65932A85-71A4-4032-B9CF-B2F066855819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65932A85-71A4-4032-B9CF-B2F066855819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
