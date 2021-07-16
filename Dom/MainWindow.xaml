@@ -5,12 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dom"
         mc:Ignorable="d"
-        Title="Zbadaj dom" Height="250" Width="264.772">
+        Title="Zbadaj dom" Height="306.818" Width="264.772">
     <Grid>
         <TextBox x:Name="opis" HorizontalAlignment="Left" Height="149" TextWrapping="Wrap" VerticalAlignment="Top" Width="231" Margin="10,10,0,0"/>
         <Button x:Name="idźTutaj" Content="idź tutaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,164,0,0" Click="idźTutaj_Click"/>
         <ComboBox x:Name="wyjścia" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="151" Margin="90,164,0,0"/>
-        <Button x:Name="idźPrzezDrzwi" Content="Przejdź przez drzwi" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="10,189,0,0" Click="idźPrzezDrzwi_Click"/>
+        <Button x:Name="idźPrzezDrzwi" Visibility="Collapsed" Content="Przejdź przez drzwi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="10,189,0,0" Click="idźPrzezDrzwi_Click"/>
+        <Button x:Name="sprawdź" Content="----" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="10,214,0,0" Click="sprawdź_Click"/>
+        <Button x:Name="kryjSię" Content="Kryj się!" HorizontalAlignment="Left" VerticalAlignment="Top" Width="230" Margin="10,239,0,0" Click="kryjSię_Click"/>
 
     </Grid>
 </Window>

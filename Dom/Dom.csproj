@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="IKryjówka.cs" />
     <Compile Include="IMaZewenętrzneDrzwi.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -71,10 +72,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Miejsce.cs" />
+    <Compile Include="Oponent.cs" />
     <Compile Include="Otoczenie.cs" />
     <Compile Include="OtoczenieZDrzwiami.cs" />
+    <Compile Include="OtoczenieZKryjówką.cs" />
     <Compile Include="Pokój.cs" />
     <Compile Include="PokójZDrzwiami.cs" />
+    <Compile Include="PokójZKryjówką.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

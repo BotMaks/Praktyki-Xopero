@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Dom
 {
-    class PokójZDrzwiami:Pokój, IMaZewenętrzneDrzwi
+    class PokójZDrzwiami:PokójZKryjówką, IMaZewenętrzneDrzwi
     {
         public string opisDrzwi { get; private set; }
         public Miejsce miejsceDrzwi { get; set; }
-        public PokójZDrzwiami(string nazwa, string ozdoby, string opisDrzwi):base(nazwa, ozdoby) {
+        public PokójZDrzwiami(string nazwa, string ozdoby, string nazwaKryjówki, string opisDrzwi):base(nazwa, ozdoby, nazwaKryjówki) {
             this.opisDrzwi = opisDrzwi;
         }
     }
