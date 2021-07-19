@@ -174,13 +174,19 @@ namespace Dom
             for (int i=1; i<=10; i++) {
                 oponent.poruszSię();
                 opis.Text = i + "...";
+                DoEvents();
                 Thread.Sleep(1000);
             }
             opis.Text = "Gotowy czy nie - nadchodzę!";
-            Thread.Sleep(1000);
+            DoEvents();
+            Thread.Sleep(1500);
             idźTutaj.Visibility = Visibility.Visible;
             wyjścia.Visibility = Visibility.Visible;
             idźDoNowegoMiejsca(salon);
+        }
+        public static void DoEvents()
+        {
+            Application.Current.Dispatcher.Invoke(System.Windows.Threading.DispatcherPriority.Background, new ThreadStart(delegate { }));
         }
     }
 }
