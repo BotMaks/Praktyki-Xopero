@@ -16,7 +16,7 @@ namespace Talie_kart
             karty = new List<Karta>();
             for (int kolor = 0; kolor < 4; kolor++) 
             {
-                for(int wartość = 0; wartość < 13; wartość++)
+                for(int wartość = 1; wartość < 14; wartość++)
                 {
                     karty.Add(new Karta((Karta.Kolor)kolor, (Karta.Wartość)wartość));
                 }

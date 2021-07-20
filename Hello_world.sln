@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dom", "Dom\Dom.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kaczki", "kaczki\kaczki.csproj", "{F98DDD25-0263-4977-A219-7D070960C6A4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Talie kart", "Talie kart\Talie kart.csproj", "{3D3C0BA4-D059-4AF4-8949-981C2EC01C7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{F98DDD25-0263-4977-A219-7D070960C6A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F98DDD25-0263-4977-A219-7D070960C6A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F98DDD25-0263-4977-A219-7D070960C6A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D3C0BA4-D059-4AF4-8949-981C2EC01C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3C0BA4-D059-4AF4-8949-981C2EC01C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3C0BA4-D059-4AF4-8949-981C2EC01C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3C0BA4-D059-4AF4-8949-981C2EC01C7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
