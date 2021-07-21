@@ -53,10 +53,50 @@ namespace Idź_na_ryby
             return pary;
         }
 
-        /*public Karta.Wartość dajLosowąWartość()
+        public Karta.Wartość dajLosowąWartość()
         {
+            Karta losowaKarta = ręka.sprawdź(random.Next(ręka.licznik));
+            return losowaKarta.wartość;
+        }
+        public Talia czyMaszKartę(Karta.Wartość wartość) 
+        {
+            Talia mojeKarty = ręka.wyciągnijKarty(wartość);
+            przebieg.Text += string.Format(">{0} ma {1} {2}\n", nazwa, mojeKarty.licznik, Karta.odmiana(wartość, mojeKarty.licznik));
+            return mojeKarty;
+        }
 
-        }*/
+        public void poprośKartę(List<Gracz> gracze, int mójIndex, Talia stos) 
+        { 
+            if(stos.licznik > 0)
+            {
+                if(ręka.licznik == 0) { ręka.dodaj(stos.wymiana()); }
+            }
+            Karta.Wartość losowaWartość = dajLosowąWartość();
+            poprośKartę(gracze, mójIndex, stos, losowaWartość);
+        }
 
+        public void poprośKartę(List<Gracz> gracze, int mójIndex, Talia stos, Karta.Wartość wartość) 
+        {
+            przebieg.Text += string.Format("{0} pyta, czy ktoś ma {1}\n", nazwa, Karta.odmiana(wartość, 1));
+            int ilośćOddanychKart = 0;
+            for (int i = 0; i < gracze.Count; i++) 
+            {
+                if (i != mójIndex) 
+                {
+                    Gracz gracz = gracze[i];
+                    Talia oddaneKarty = gracz.czyMaszKartę(wartość);
+                    ilośćOddanychKart += oddaneKarty.licznik;
+                    while(oddaneKarty.licznik > 0) 
+                    {
+                        ręka.dodaj(oddaneKarty.wymiana());
+                    }
+                }
+            }
+            if(ilośćOddanychKart == 0)
+            {
+                przebieg.Text += string.Format("{0} pobrał kartę z kupki.\n", nazwa);
+                ręka.dodaj(stos.wymiana());
+            }
+        }
     }
 }

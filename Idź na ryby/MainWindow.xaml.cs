@@ -24,10 +24,30 @@ namespace Idź_na_ryby
         {
             InitializeComponent();
         }
+        private Gra gra;
 
         private void start_Click(object sender, RoutedEventArgs e)
         {
             rozpocznijGrę();
+        }
+        private void poproś_Click(object sender, RoutedEventArgs e)
+        {
+            przebiegGry.Text = "";
+            if(rękaGracza.SelectedIndex < 0) 
+            {
+                MessageBox.Show("Wybierz kartę!");
+                return;
+            }
+            if (gra.zagrajRundę(rękaGracza.SelectedIndex))
+            {
+                przebiegGry.Text += "Zwycięzcą jest ..." + gra.podajZwycięzce();
+                pary.Text += gra.wypiszPary();
+                poproś.IsEnabled = false;
+            }
+            else 
+            {
+                aktualizujPrzebieg();
+            }
         }
 
         private void rozpocznijGrę() 
@@ -36,6 +56,7 @@ namespace Idź_na_ryby
                 MessageBox.Show("Wpisz swoje imie!\nNie można jeszcze rozpocząć gry.");
                 return;
             }
+            gra = new Gra(imie.Text, new List<string> { "Grześ", "Maciek" }, przebiegGry);
 
             Visibility widoczny = Visibility.Visible;
             przebiegGryInfo.Visibility = widoczny;
@@ -47,11 +68,19 @@ namespace Idź_na_ryby
             pary.Visibility = widoczny;
             start.Visibility = Visibility.Collapsed;
             imie.IsEnabled = false;
-        }
 
-        private void poproś_Click(object sender, RoutedEventArgs e)
-        {
-            
+            aktualizujPrzebieg();
         }
+         private void aktualizujPrzebieg() 
+         {
+            rękaGracza.Items.Clear();
+            foreach (String nazwaKarty in gra.podajNazwęKartyGracza()) 
+            {
+                rękaGracza.Items.Add(nazwaKarty);
+            }
+            pary.Text += gra.wypiszPary();
+            przebiegGry.Text += gra.opiszRękęGracza();
+         }
+
     }
 }
