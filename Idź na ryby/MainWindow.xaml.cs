@@ -41,7 +41,7 @@ namespace Idź_na_ryby
             if (gra.zagrajRundę(rękaGracza.SelectedIndex))
             {
                 przebiegGry.Text += "Zwycięzcą jest ..." + gra.podajZwycięzce();
-                pary.Text += gra.wypiszPary();
+                pary.Text = gra.wypiszPary();
                 poproś.IsEnabled = false;
             }
             else 
@@ -56,7 +56,7 @@ namespace Idź_na_ryby
                 MessageBox.Show("Wpisz swoje imie!\nNie można jeszcze rozpocząć gry.");
                 return;
             }
-            gra = new Gra(imie.Text, new List<string> { "Grześ", "Maciek" }, przebiegGry);
+            gra = new Gra(imie.Text, new List<string> { "Grześ", "-" }, przebiegGry);
 
             Visibility widoczny = Visibility.Visible;
             przebiegGryInfo.Visibility = widoczny;
@@ -78,7 +78,7 @@ namespace Idź_na_ryby
             {
                 rękaGracza.Items.Add(nazwaKarty);
             }
-            pary.Text += gra.wypiszPary();
+            pary.Text = gra.wypiszPary();
             przebiegGry.Text += gra.opiszRękęGracza();
          }
 

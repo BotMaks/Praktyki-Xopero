@@ -1,0 +1,25 @@
+﻿<Window x:Class="Program_do_zarządania_wymówkami.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Program_do_zarządania_wymówkami"
+        mc:Ignorable="d"
+        Title="Program do zarządzania wymówkami" Height="238.637" Width="473.864">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Wymówka" VerticalAlignment="Top" Margin="25,10,0,0" FontSize="16"/>
+        <TextBox x:Name="wymówkaTextBox" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Margin="150,10,0,0" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Wyniki" VerticalAlignment="Top" FontSize="16" Margin="25,45,0,0"/>
+        <TextBox x:Name="wynikiTextBox" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Margin="150,45,0,0" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ostatnio użyte" VerticalAlignment="Top" FontSize="16" Margin="25,80,0,0"/>
+        <TextBox x:Name="ostatnioUżyteTextBox" HorizontalAlignment="Left" Height="25" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" Margin="150,80,0,0" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Data pliku" VerticalAlignment="Top" FontSize="16" Margin="25,115,0,0"/>
+        <Label x:Name="dataPlikuLabel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,115,0,0" Height="30" Width="285"/>
+        <Button x:Name="folderButton" Content="Folder" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="25,150,0,0" Height="25" Click="folderButton_Click"/>
+        <Button x:Name="zapiszButton" Content="Zapisz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="120,150,0,0" Height="25" IsEnabled="False" Click="zapiszButton_Click"/>
+        <Button x:Name="otwórzButton" Content="Otwórz" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" Margin="215,150,0,0" Height="25" IsEnabled="False" Click="otwórzButton_Click"/>
+        <Button x:Name="losowaWymówkaButton" Content="Losowa wymówka" HorizontalAlignment="Left" VerticalAlignment="Top" Width="125" Height="25" Margin="310, 150, 0, 0" IsEnabled="False" Click="losowaWymówkaButton_Click"/>
+
+    </Grid>
+    
+</Window>

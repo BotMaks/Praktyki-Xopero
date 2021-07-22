@@ -13,7 +13,6 @@ namespace Idź_na_ryby
         private Dictionary<Karta.Wartość, Gracz> posiada;
         private Talia stos;
         private TextBox przebieg;
-
         public Gra(string nazwaGracza, IEnumerable<string> gracze, TextBox przebieg) 
         {
             Random random = new Random();
@@ -29,7 +28,6 @@ namespace Idź_na_ryby
             wymiana();
             this.gracze[0].sortujRękę();
         }
-
         public void wymiana()
         {
             stos.mieszaj();
@@ -45,7 +43,6 @@ namespace Idź_na_ryby
                 wyciągnijParę(gracz);
             }
         }
-
         public bool wyciągnijParę(Gracz gracz) 
         {
             IEnumerable<Karta.Wartość> wyciągniętePary = gracz.sprawdźCzyGrupa();
@@ -54,10 +51,8 @@ namespace Idź_na_ryby
                 posiada.Add(wartość, gracz);
             }
             if (gracz.licznikKart == 0) { return true; }
-
             return false;
         }
-
         public bool zagrajRundę(int wybranaKarta) 
         {
             Karta.Wartość kartaDoPobrania = gracze[0].sprawdź(wybranaKarta).wartość;
@@ -84,7 +79,6 @@ namespace Idź_na_ryby
             }
             return false;
         }
-
         public string wypiszPary() 
         {
             string ktoMaJakąParę = "";
@@ -94,7 +88,6 @@ namespace Idź_na_ryby
             }
             return ktoMaJakąParę;
         }
-
         public string podajZwycięzce() 
         {
             Dictionary<string, int> zwycięzcy = new Dictionary<string, int>();
@@ -131,7 +124,6 @@ namespace Idź_na_ryby
         {
             return gracze[0].podajNazwęKart();
         }
-
         public string opiszRękęGracza() 
         {
             string opis = "";
@@ -145,6 +137,5 @@ namespace Idź_na_ryby
             opis += string.Format("Na kupce pozostało {0} kart.\n", stos.licznik);
             return opis;
         }
-
     }
 }

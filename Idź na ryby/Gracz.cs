@@ -14,7 +14,6 @@ namespace Idź_na_ryby
         private Random random;
         private Talia ręka;
         private TextBox przebieg;
-
         public Gracz(string imie, Random random, TextBox przebieg) 
         {
             this.imie = imie;
@@ -28,7 +27,6 @@ namespace Idź_na_ryby
         public IEnumerable<string> podajNazwęKart() { return ręka.podajNazwyKart(); }
         public Karta sprawdź(int nrKarty) { return ręka.sprawdź(nrKarty); }
         public  void sortujRękę() { ręka.sortujWgWartości(); }
-
         public IEnumerable<Karta.Wartość> sprawdźCzyGrupa()
         {
             List<Karta.Wartość> pary = new List<Karta.Wartość>();
@@ -52,7 +50,6 @@ namespace Idź_na_ryby
             }
             return pary;
         }
-
         public Karta.Wartość dajLosowąWartość()
         {
             Karta losowaKarta = ręka.sprawdź(random.Next(ręka.licznik));
@@ -64,7 +61,6 @@ namespace Idź_na_ryby
             przebieg.Text += string.Format(">{0} ma {1} {2}\n", nazwa, mojeKarty.licznik, Karta.odmiana(wartość, mojeKarty.licznik));
             return mojeKarty;
         }
-
         public void poprośKartę(List<Gracz> gracze, int mójIndex, Talia stos) 
         { 
             if(stos.licznik > 0)
@@ -74,7 +70,6 @@ namespace Idź_na_ryby
             Karta.Wartość losowaWartość = dajLosowąWartość();
             poprośKartę(gracze, mójIndex, stos, losowaWartość);
         }
-
         public void poprośKartę(List<Gracz> gracze, int mójIndex, Talia stos, Karta.Wartość wartość) 
         {
             przebieg.Text += string.Format("{0} pyta, czy ktoś ma {1}\n", nazwa, Karta.odmiana(wartość, 1));

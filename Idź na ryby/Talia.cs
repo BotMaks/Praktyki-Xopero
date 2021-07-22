@@ -10,7 +10,6 @@ namespace Idź_na_ryby
     {
         private List<Karta> karty;
         private Random random = new Random();
-
         public Talia()
         {
             karty = new List<Karta>();
@@ -31,7 +30,6 @@ namespace Idź_na_ryby
             get
             { return karty.Count; }
         }
-
         public void dodaj(Karta kartaDoDodania)
         {
             karty.Add(kartaDoDodania);
@@ -53,7 +51,6 @@ namespace Idź_na_ryby
             }
             karty = noweKarty;
         }
-
         public IEnumerable<string> podajNazwyKart()
         {
             string[] nazwyKart = new string[karty.Count];
@@ -64,17 +61,14 @@ namespace Idź_na_ryby
 
             return nazwyKart;
         }
-
         public Karta sprawdź(int nrKarty)
         {
             return karty[nrKarty];
         }
-
         public Karta wymiana() 
         { 
             return wymiana(0); 
         }
-
         public bool zawieraKarte(Karta.Wartość wartość) 
         {
             foreach(Karta karta in karty)
@@ -83,7 +77,6 @@ namespace Idź_na_ryby
             }
             return false;
         }
-
         public Talia wyciągnijKarty(Karta.Wartość wartość)
         {
             Talia taliaDoZwrócenia = new Talia(new Karta[] { });
@@ -93,7 +86,6 @@ namespace Idź_na_ryby
             }
             return taliaDoZwrócenia;
         }
-
         public bool maParę(Karta.Wartość wartość) 
         {
             int ilośćKart = 0;
@@ -107,7 +99,6 @@ namespace Idź_na_ryby
             if(ilośćKart == 4) { return true; }
             else { return false; }
         }
-
         public void sortujWgWartości() 
         {
             karty.Sort(new SortujWgWartości());
