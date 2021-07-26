@@ -14,7 +14,7 @@ namespace Program_do_zarządania_wymówkami
         public string nazwa { get; set; }
         public string wynik { get; set; }
         public string ścieżka { get; set; }
-        public string ostatnioUżyta { get; set; }
+        public DateTime? ostatnioUżyta { get; set; }
 
         public Wymówka() { ścieżka = ""; }
     
@@ -23,7 +23,7 @@ namespace Program_do_zarządania_wymówkami
             this.ścieżka = ścieżka;
             nazwa = "";
             wynik = "";
-            ostatnioUżyta = "";
+            ostatnioUżyta = null;
         }
 
         public Wymówka(Random rand, string ścieżka) 
@@ -34,33 +34,39 @@ namespace Program_do_zarządania_wymówkami
             
         }
 
-        public void zapiszWymówkę(string nazwa, TextBox wymówka, TextBox opis, TextBox data) 
+        public void zapiszWymówkę(string nazwa, TextBox wymówka, TextBox opis, DatePicker data) 
         {
             using (StreamWriter zapisz = new StreamWriter(nazwa)) 
             {
                 zapisz.WriteLine(wymówka.Text);
                 zapisz.WriteLine(opis.Text);
-                zapisz.WriteLine(data.Text);
+                zapisz.WriteLine(data.SelectedDate);
             }
             this.nazwa = wymówka.Text;
             this.wynik = opis.Text;
-            this.ostatnioUżyta = data.Text;
+            this.ostatnioUżyta = Convert.ToDateTime(data.SelectedDate);
                 
         }
 
-        public void otwórzWymówkę(string nazwa, TextBox wymówka, TextBox opis, TextBox data) 
+        public void otwórzWymówkę(string nazwa, TextBox wymówka, TextBox opis, DatePicker data) 
         {
             using (StreamReader czytaj = new StreamReader(nazwa)) 
             {
                 while (!czytaj.EndOfStream) {
                     wymówka.Text = czytaj.ReadLine();
                     opis.Text = czytaj.ReadLine();
-                    data.Text = czytaj.ReadLine();
+                    data.SelectedDate = Convert.ToDateTime(czytaj.ReadLine());
                 }
             }
             this.nazwa = wymówka.Text;
             this.wynik = opis.Text;
-            this.ostatnioUżyta = data.Text;
+            this.ostatnioUżyta = Convert.ToDateTime(data.SelectedDate);
+        }
+        public void podajDatęUtworzeniaPliku(Label dataPlikuLabel, string nazwaPliku)
+        {
+            
+            string stworzenie = Convert.ToString(File.GetCreationTime(nazwaPliku));
+            dataPlikuLabel.Content = stworzenie;
         }
     }
 }

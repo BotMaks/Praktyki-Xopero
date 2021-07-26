@@ -24,13 +24,15 @@ namespace Program_do_zarządania_wymówkami
     {
         string ścieżka;
         string[] pliki;
+        string schowekNaTytuł;
         Wymówka aktualnaWymówka = new Wymówka();
         Random rand = new Random();
-        private bool zmianaFormularza = false;
         public MainWindow()
         {
             InitializeComponent();
+            schowekNaTytuł = this.Title;
         }
+        
 
         private void folderButton_Click(object sender, RoutedEventArgs e)
         {
@@ -50,7 +52,7 @@ namespace Program_do_zarządania_wymówkami
                     losowaWymówkaButton.IsEnabled = true;
                     wymówkaTextBox.IsEnabled = true;
                     wynikiTextBox.IsEnabled = true;
-                    ostatnioUżyteTextBox.IsEnabled = true;
+                    ostatnioUżyteDatePicker.IsEnabled = true;
                     return;
                 }
             }
@@ -69,7 +71,8 @@ namespace Program_do_zarządania_wymówkami
                     System.Windows.Forms.DialogResult wynik = otwórz.ShowDialog();
                     if (wynik == System.Windows.Forms.DialogResult.OK)
                     {
-                        aktualnaWymówka.otwórzWymówkę(otwórz.FileName, wymówkaTextBox, wynikiTextBox, ostatnioUżyteTextBox);
+                        aktualnaWymówka.otwórzWymówkę(otwórz.FileName, wymówkaTextBox, wynikiTextBox, ostatnioUżyteDatePicker);
+                        aktualnaWymówka.podajDatęUtworzeniaPliku(dataPlikuLabel, otwórz.FileName);
                     }
                 }
             }
@@ -79,23 +82,34 @@ namespace Program_do_zarządania_wymówkami
             if (!sprawdźZmiany())
             {
                 aktualnaWymówka = new Wymówka(rand, ścieżka);
-                aktualnaWymówka.otwórzWymówkę(aktualnaWymówka.nazwa, wymówkaTextBox, wynikiTextBox, ostatnioUżyteTextBox);
+                aktualnaWymówka.podajDatęUtworzeniaPliku(dataPlikuLabel, aktualnaWymówka.nazwa);
+                aktualnaWymówka.otwórzWymówkę(aktualnaWymówka.nazwa, wymówkaTextBox, wynikiTextBox, ostatnioUżyteDatePicker);
             }
         }
 
         private void zapiszButton_Click(object sender, RoutedEventArgs e)
         {
-            if(String.IsNullOrEmpty(wymówkaTextBox.Text) || String.IsNullOrEmpty(wynikiTextBox.Text))
+            if(String.IsNullOrEmpty(wymówkaTextBox.Text) || String.IsNullOrEmpty(wynikiTextBox.Text) || (ostatnioUżyteDatePicker.SelectedDate == null))
             {
-                MessageBox.Show("Podaj wymówkę i rezultat!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                MessageBox.Show("Podaj wszystkie dane!", "Błąd", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                 return;
             }
-
+            using(System.Windows.Forms.SaveFileDialog zapisz = new System.Windows.Forms.SaveFileDialog())
+            {
+                zapisz.InitialDirectory = ścieżka;
+                zapisz.Title = "Wybierz plik w którym zapiszesz swoją wymówkę";
+                zapisz.Filter = "Pliki tekstowe (*.txt)|*.txt|Wszystkie pliki (*.*)|*.*";
+                System.Windows.Forms.DialogResult wynik = zapisz.ShowDialog();
+                if (wynik == System.Windows.Forms.DialogResult.OK)
+                {
+                    aktualnaWymówka.zapiszWymówkę(zapisz.FileName, wymówkaTextBox, wynikiTextBox, ostatnioUżyteDatePicker);
+                    aktualnaWymówka.podajDatęUtworzeniaPliku(dataPlikuLabel, zapisz.FileName);
+                }
+            }
         }
-
         private bool sprawdźZmiany()
         {
-            if (aktualnaWymówka.nazwa != wymówkaTextBox.Text || aktualnaWymówka.wynik != wynikiTextBox.Text || aktualnaWymówka.ostatnioUżyta != ostatnioUżyteTextBox.Text)
+            if (aktualnaWymówka.nazwa != wymówkaTextBox.Text || aktualnaWymówka.wynik != wynikiTextBox.Text || aktualnaWymówka.ostatnioUżyta != ostatnioUżyteDatePicker.SelectedDate)
             {
                 MessageBoxResult odpowiedź = MessageBox.Show("Bierząca wymówka nie zostałą zapisana!\nCzy kontynuować?", "Ostrzeżenie", MessageBoxButton.YesNo, MessageBoxImage.Warning);
                 if (odpowiedź == MessageBoxResult.No)
