@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,7 +55,11 @@
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Broń.cs" />
+    <Compile Include="Przeciwnik.cs" />
+    <Compile Include="Ruch.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -62,6 +68,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Gra.cs" />
+    <Compile Include="Gracz.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +100,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gracz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="królik.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="duch.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="upiór.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="potka_zdrowia.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="potka_many.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="miecz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="łuk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="topór.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

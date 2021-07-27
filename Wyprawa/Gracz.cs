@@ -40,9 +40,21 @@ namespace Wyprawa
                 if (broń.nazwa == nazwaBroni) { posiadanaBroń = broń; }
             }
         }
-        public void ruszSię(KeyEventArgs klawisz) 
-        { 
-            //dokończ to
+        public void ruszSię(Key klawisz) 
+        {
+            base.lokalizacja = ruszSię(klawisz, gra.Bariera);
+            if (!gra.bronieWPokoju.podniesiona)
+            {
+                if(otoczenie(this.lokalizacja, gra.bronieWPokoju.Lokalizacja, PrędkośćPoruszania))
+                {
+                    ekwipunek.Add(gra.bronieWPokoju);
+                    gra.bronieWPokoju.podnieśBroń();
+                }
+            }
+        }
+        public void atak(Key klawisz, Random rand) 
+        {
+            //dodaj po dodaniu wszystkich przedmiotów
         }
     }
 }

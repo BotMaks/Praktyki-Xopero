@@ -12,6 +12,7 @@ namespace Wyprawa
     abstract class Ruch
     {
         private const int prędkośćPoruszania = 10;
+        public int PrędkośćPoruszania { get { return prędkośćPoruszania; } }
         protected Point lokalizacja;
         public Point Lokalizacja { get { return lokalizacja; } }
         protected Gra gra;
@@ -29,11 +30,16 @@ namespace Wyprawa
             }
             else { return false; }
         }
-        public Point ruszSię(KeyEventArgs klawisz, Rectangle bariera) 
+        public bool otoczenie (Point lokalizacjaSprawdzającego, Point lokalizacjaDoSprawdzenia, int dystans) 
+        {
+            lokalizacja = lokalizacjaSprawdzającego;
+            return otoczenie(lokalizacjaSprawdzającego, dystans); 
+        }
+        public Point ruszSię(Key klawisz, Rectangle bariera) //
         {
             Point nowaLokalizacja = lokalizacja;
 
-            switch (e.Key)
+            switch (klawisz)
             {
                 case Key.Up:
                     if (nowaLokalizacja.Y - prędkośćPoruszania >= bariera.Top) { nowaLokalizacja.Y -= prędkośćPoruszania; }
@@ -50,6 +56,12 @@ namespace Wyprawa
                 default: break;
             }
             return nowaLokalizacja;
+        }
+
+        public Point ruszSię(Key kierunek, Point punktStartowy, Rectangle bariera) 
+        {
+            lokalizacja = punktStartowy;
+            return ruszSię(kierunek, bariera);
         }
     }
 }

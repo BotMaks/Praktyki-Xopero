@@ -30,9 +30,47 @@ namespace Wyprawa
         }
         public void ruch(KeyEventArgs klawisz, Random rand) 
         {
-            gracz.ruszSię(klawisz);
+            gracz.ruszSię(klawisz.Key);
         }
+        public void weżBroń(string nazwaBroni) 
+        {
+            gracz.weźBroń(nazwaBroni);
+        }
+        public bool sprawdźEkwipunekGracza(string nazwaBroni) 
+        {
+            return gracz.bronie.Contains(nazwaBroni);
+        }
+        public void uderzGracza(int maxObrażenia, Random rand) 
+        {
+            gracz.otrzymanieObrażeń(maxObrażenia, rand);
+        }
+        public void podnieśZdrowieGracza(int leczenie, Random rand) 
+        {
+            gracz.zwiększenieZdrowia(leczenie, rand);
+        }
+        public void atak(KeyEventArgs klawisz, Random rand) 
+        {
+            gracz.atak(klawisz.Key, rand);
+            foreach (Przeciwnik przeciwnik in przeciwnicy) 
+            {
+                przeciwnik.ruszSię(rand);
+            }
+        }
+        private Point podajLosoweMiejsce(Random rand) 
+        {
+            return new Point(bariera.Left + rand.Next(bariera.Right / 10 - bariera.Left / 10) * 10, 
+                bariera.Top + rand.Next(bariera.Bottom / 10 - bariera.Top / 10) * 10);
+        }
+        public void nowyPoziom(Random rand)
+        {
+            poziom++;
+            switch (poziom)
+            {
+                case 1:
 
 
+                    break;
+            }
+        }
     }
 }
