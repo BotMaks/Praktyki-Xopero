@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Input;
+using System.Windows.Forms;
 
 namespace Wyprawa
 {
     class Gracz:Ruch
     {
-        private Broń posiadanaBroń;
+        private Broń używanaBroń;
         public int zdrowie { get; private set; }
         private List<Broń> ekwipunek = new List<Broń>();
         public IEnumerable<string> bronie 
@@ -37,7 +38,7 @@ namespace Wyprawa
         {
             foreach (Broń broń in ekwipunek) 
             {
-                if (broń.nazwa == nazwaBroni) { posiadanaBroń = broń; }
+                if (broń.nazwa == nazwaBroni) { używanaBroń = broń; }
             }
         }
         public void ruszSię(Key klawisz) 
@@ -54,7 +55,21 @@ namespace Wyprawa
         }
         public void atak(Key klawisz, Random rand) 
         {
-            //dodaj po dodaniu wszystkich przedmiotów
+            if(używanaBroń != null && używanaBroń.podniesiona == true)
+            {
+                if(używanaBroń is IPotki)
+                {
+                    
+                    używanaBroń.atak(klawisz, rand);
+                    ekwipunek.Remove(używanaBroń);
+                    
+                }
+                else
+                {
+                    używanaBroń.atak(klawisz, rand);
+                }
+            }
+            MessageBox.Show("Nie wybrałeś żadnego przedmiotu!");   
         }
     }
 }

@@ -64,11 +64,64 @@ namespace Wyprawa
         public void nowyPoziom(Random rand)
         {
             poziom++;
+            List<Przeciwnik> przeciwnicy1 = new List<Przeciwnik>();
             switch (poziom)
             {
                 case 1:
-
-
+                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    bronieWPokoju = new Miecz(this, podajLosoweMiejsce(rand));
+                    break;
+                case 2:
+                    przeciwnicy1.Clear();
+                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    bronieWPokoju = new MałaPotka(this, podajLosoweMiejsce(rand));
+                    break;
+                case 3:
+                    przeciwnicy1.Clear();
+                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    bronieWPokoju = new Łuk(this, podajLosoweMiejsce(rand));
+                    break;
+                case 4:
+                    przeciwnicy1.Clear();
+                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    if (!sprawdźEkwipunekGracza("Łuk")) 
+                    {
+                        bronieWPokoju = new Łuk(this, podajLosoweMiejsce(rand));
+                    }
+                    else
+                    {
+                        bronieWPokoju = new MałaPotka(this, podajLosoweMiejsce(rand));
+                    }
+                    break;
+                case 5:
+                    przeciwnicy1.Clear();
+                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    bronieWPokoju = new DużaPotka(this, podajLosoweMiejsce(rand));
+                    break;
+                case 6:
+                    przeciwnicy1.Clear();
+                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    bronieWPokoju = new Topór(this, podajLosoweMiejsce(rand));
+                    break;
+                case 7:
+                    przeciwnicy1.Clear();
+                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    if (!sprawdźEkwipunekGracza("Topór")) {
+                        bronieWPokoju = new Topór(this, podajLosoweMiejsce(rand));
+                    }
+                    else
+                    {
+                        bronieWPokoju = new DużaPotka(this, podajLosoweMiejsce(rand));
+                    }
+                    break;
+                default:
+                    System.Windows.Forms.MessageBox.Show("Przeszedłeś moja grę.", "Gratulacje!");
+                    System.Windows.Forms.Application.Exit();
                     break;
             }
         }

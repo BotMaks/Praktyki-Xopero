@@ -5,68 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wyprawa"
         mc:Ignorable="d"
-        Title="Wyprawa" Height="450" Width="800">
+        Title="Wyprawa" Height="450" Width="800" KeyDown="Window_KeyDown">
     <Grid>
-        <Image x:Name="gracz" Source="gracz.png" Stretch="Uniform" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="82,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="gracz.png" Stretch="Uniform"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="królik" Source="królik.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50"  Margin="137,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="królik.jpg" Stretch="Uniform"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="duch" HorizontalAlignment="Left" Stretch="UniformToFill" Source="duch.jpg" Height="50" VerticalAlignment="Top" Width="50" Margin="192,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="duch.jpg"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="upiór" Source="upiór.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="247,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="upiór.jpg"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="potka_zdrowia" Source="potka_zdrowia.jpeg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="302,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="potka_zdrowia.jpeg"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="potka_many" Stretch="Fill" Source="potka_many.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="357,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="potka_many.jpg"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="miecz" Stretch="Fill" Source="miecz.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="412,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="miecz.jpg"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="łuk" Source="łuk.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="467,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="łuk.jpg"/>
-            </Image.OpacityMask>
-        </Image>
-        <Image x:Name="topór" Source="topór.png" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="522,84,0,0">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="topór.png"/>
-            </Image.OpacityMask>
-        </Image>
-        <Grid x:Name="ruch" Margin="537,292,155,31">
-            <Button x:Name="ruchPrawo" Content="→" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="70,46,0,0"/>
-            <Button x:Name="ruchLewo" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="0,46,0,0"/>
-            <Button x:Name="ruchGóra" Content="↑" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="35,26,0,0"/>
-            <Button x:Name="ruchDół" Content="↓" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="35,66,0,0"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ruch" VerticalAlignment="Top" FontSize="16"/>
-        </Grid>
-        <Grid x:Name="atak" Margin="669,292,23,31">
-            <Button x:Name="atakPrawo" Content="→" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="70,46,0,0"/>
-            <Button x:Name="atakLewo" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="0,46,0,0"/>
-            <Button x:Name="atakGóra" Content="↑" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="35,26,0,0"/>
-            <Button x:Name="atakDół" Content="↓" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="35,66,0,0"/>
-            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Atak" VerticalAlignment="Top" FontSize="16"/>
-        </Grid>
-        <Grid Margin="377,292,260,31">
+
+        <Button x:Name="ruchPrawo" Content="→" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="615,352,0,0" IsEnabled="False"/>
+        <Button x:Name="ruchLewo" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="545,352,0,0" IsEnabled="False"/>
+        <Button x:Name="ruchGóra" Content="↑" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="580,332,0,0" IsEnabled="False"/>
+        <Button x:Name="ruchDół" Content="↓" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="580,372,0,0" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ruch" VerticalAlignment="Top" FontSize="16" Margin="545,306,0,0"/>
+        <Button x:Name="atakPrawo" Content="→" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="747,352,0,0" IsEnabled="False"/>
+        <Button x:Name="atakLewo" Content="←" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="677,352,0,0" IsEnabled="False"/>
+        <Button x:Name="atakGóra" Content="↑" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="712,332,0,0" IsEnabled="False"/>
+        <Button x:Name="atakDół" Content="↓" HorizontalAlignment="Left" VerticalAlignment="Top" Width="30" Height="30" Margin="712,372,0,0" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Atak" VerticalAlignment="Top" FontSize="16" Margin="677,306,0,0"/>
+        <Grid Margin="664,189,-27,113">
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Gracz" VerticalAlignment="Top" FontSize="16"/>
             <TextBlock x:Name="zdrowieGraczText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Margin="89,0,0,0"/>
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Nietoperz" VerticalAlignment="Top" Margin="0,25,0,0" FontSize="16"/>
@@ -76,5 +28,87 @@
             <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Upiór" VerticalAlignment="Top" Margin="0,75,0,-1" FontSize="16"/>
             <TextBlock x:Name="zdrowieUpiórText" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Margin="89,75,0,-1"/>
         </Grid>
+        <GroupBox Header="Sterowanie" FontSize="18" HorizontalAlignment="Left" Height="130" VerticalAlignment="Top" Width="260" Margin="522,279,0,0"/>
+        <Canvas HorizontalAlignment="Left" Height="197" VerticalAlignment="Top" Width="638" Margin="82,84,0,0" RenderTransformOrigin="0.5,0.5">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.362"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.562"/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+            <Image x:Name="graczGrafika" Visibility="Collapsed" Source="gracz.png" Stretch="Uniform" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="82,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="gracz.png" Stretch="Uniform"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="królikGrafika" Visibility="Collapsed" Source="królik.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50"  Margin="137,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="królik.jpg" Stretch="Uniform"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="duchGrafika" Visibility="Collapsed" HorizontalAlignment="Left" Stretch="UniformToFill" Source="duch.jpg" Height="50" VerticalAlignment="Top" Width="50" Margin="192,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="duch.jpg"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="upiórGrafika" Visibility="Collapsed" Source="upiór.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="247,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="upiór.jpg"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="małaPotkaGrafika" Visibility="Collapsed" Source="potka_zdrowia.jpeg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="302,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="potka_zdrowia.jpeg"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="dużaPotkaGrafika" Visibility="Collapsed" Stretch="Fill" Source="potka_many.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="357,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="potka_many.jpg"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="mieczGrafika" Visibility="Collapsed" Stretch="Fill" Source="miecz.jpg" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="412,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="miecz.jpg"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="łukGrafika" Visibility="Collapsed" Source="łuk.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="467,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="łuk.jpg"/>
+                </Image.OpacityMask>
+            </Image>
+            <Image x:Name="topórGrafika" Visibility="Collapsed" Source="topór.png" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50" Margin="522,84,0,0">
+                <Image.OpacityMask>
+                    <ImageBrush ImageSource="topór.png"/>
+                </Image.OpacityMask>
+            </Image>
+        </Canvas>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Ekwipunek" FontSize="16" VerticalAlignment="Top" Margin="10,282,0,0"/>
+        <Image x:Name="mieczItem" Source="miecz.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Margin="10,321,0,0" MouseDown="mieczItem_MouseDown">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="miecz.jpg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="ŁukItem" Source="łuk.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Margin="90,321,0,0" MouseDown="łukItem_MouseDown">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="łuk.jpg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="topórItem" Source="topór.png" Stretch="Fill" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Margin="170,321,0,0" MouseDown="topórItem_MouseDown">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="topór.png"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="małaPotkaItem" Source="mała_potka.jpeg" Stretch="Fill" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Margin="250,321,0,0" MouseDown="małaPotkaItem_MouseDown">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="mała_potka.jpeg"/>
+            </Image.OpacityMask>
+        </Image>
+        <Image x:Name="małaPotkaItem_Copy" Source="duża_potka.jpg" Stretch="Fill" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Margin="330,321,0,0" MouseDown="dużaPotkaItem_MouseDown">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="duża_potka.jpg"/>
+            </Image.OpacityMask>
+        </Image>
     </Grid>
 </Window>

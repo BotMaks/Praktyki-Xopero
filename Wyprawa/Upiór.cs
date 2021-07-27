@@ -11,7 +11,7 @@ namespace Wyprawa
 {
     class Upiór: Przeciwnik
     {
-        public Upiór(Gra gra, Point lokalizacja, int zdrowie) : base(gra, lokalizacja, 10) { }
+        public Upiór(Gra gra, Point lokalizacja) : base(gra, lokalizacja, 10) { }
 
         public override void ruszSię(Random rand)
         {

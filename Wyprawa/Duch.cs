@@ -10,7 +10,7 @@ namespace Wyprawa
 {
     class Duch:Przeciwnik
     {
-        public Duch(Gra gra, Point lokalizacja, int zdrowie) : base(gra, lokalizacja, 8) { }
+        public Duch(Gra gra, Point lokalizacja) : base(gra, lokalizacja, 8) { }
 
         public override void ruszSię(Random rand)
         {

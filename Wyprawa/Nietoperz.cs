@@ -10,7 +10,7 @@ namespace Wyprawa
 {
     class Nietoperz:Przeciwnik
     {
-        public Nietoperz(Gra gra, Point lokalizacja, int zdrowie):base(gra, lokalizacja, 6) { }
+        public Nietoperz(Gra gra, Point lokalizacja):base(gra, lokalizacja, 6) { }
         public override void ruszSię(Random rand)
         {
             if (zdrowie > 0) {

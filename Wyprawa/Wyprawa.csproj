@@ -39,6 +39,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,8 +59,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Broń.cs" />
+    <Compile Include="Duch.cs" />
+    <Compile Include="DużaPotka.cs" />
+    <Compile Include="IPotki.cs" />
+    <Compile Include="Miecz.cs" />
+    <Compile Include="Nietoperz.cs" />
+    <Compile Include="MałaPotka.cs" />
     <Compile Include="Przeciwnik.cs" />
     <Compile Include="Ruch.cs" />
+    <Compile Include="Topór.cs" />
+    <Compile Include="Upiór.cs" />
+    <Compile Include="Łuk.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -114,12 +124,6 @@
     <Resource Include="upiór.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="potka_zdrowia.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="potka_many.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="miecz.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="topór.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mała_potka.jpeg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
