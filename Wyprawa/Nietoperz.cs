@@ -11,9 +11,10 @@ namespace Wyprawa
     class Nietoperz:Przeciwnik
     {
         public Nietoperz(Gra gra, Point lokalizacja):base(gra, lokalizacja, 6) { }
-        public override void ruszSię(Random rand)
+        public override int ruszSię(Random rand)
         {
-            if (zdrowie > 0) {
+            if (zdrowie > 0)
+            {
                 if (rand.Next(1, 2) == 1)
                 {
                     //porusza się w stronę gracza
@@ -37,10 +38,19 @@ namespace Wyprawa
                         case 4:
                             ruszSię(Key.Down, this.lokalizacja, gra.Bariera);
                             break;
-                        default: 
+                        default:
                             break;
                     }
                 }
+                if (obokGracza())
+                {
+                    return rand.Next(1, 2);
+                }
+                else { return 0; }
+            }
+            else
+            {
+                return 0;
             }
         }
     }

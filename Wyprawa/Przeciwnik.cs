@@ -25,7 +25,7 @@ namespace Wyprawa
         {
             this.zdrowie = zdrowie;
         }
-        public abstract void ruszSię(Random rand);
+        public abstract int ruszSię(Random rand);
         public void otrzymajObrażenia(int maxObrażenia, Random rand) 
         {
             zdrowie -= rand.Next(1, maxObrażenia);

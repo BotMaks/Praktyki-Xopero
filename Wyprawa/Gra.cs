@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 
@@ -11,7 +12,7 @@ namespace Wyprawa
 {
     class Gra
     {
-        public IEnumerable<Przeciwnik> przeciwnicy { get; private set; }
+        public List<Przeciwnik> przeciwnicy { get; private set; }
         public Broń bronieWPokoju { get; private set; }
         private Gracz gracz;
         public Point lokalizacjaGracza { get { return gracz.Lokalizacja; } }
@@ -20,17 +21,21 @@ namespace Wyprawa
         private int poziom = 0;
         public int Poziom { get { return poziom; } }
 
-        private Rectangle bariera;
-        public Rectangle Bariera { get { return bariera; } }
+        private Canvas bariera;
+        public Canvas Bariera { get { return bariera; } }
 
-        public Gra(Rectangle bariera) 
+        public Gra(Canvas bariera) 
         {
             this.bariera = bariera;
-            gracz = new Gracz(this, new Point(bariera.Left + 10, bariera.Top + 70));
+            gracz = new Gracz(this, new Point(15, 90));
         }
-        public void ruch(KeyEventArgs klawisz, Random rand) 
+        public void ruch(Key klawisz, Random rand) 
         {
-            gracz.ruszSię(klawisz.Key);
+            gracz.ruszSię(klawisz);
+            foreach(Przeciwnik przeciwnik in przeciwnicy)
+            {
+                uderzGracza(przeciwnik.ruszSię(rand), rand);
+            }
         }
         public void weżBroń(string nazwaBroni) 
         {
@@ -48,43 +53,44 @@ namespace Wyprawa
         {
             gracz.zwiększenieZdrowia(leczenie, rand);
         }
-        public void atak(KeyEventArgs klawisz, Random rand) 
+        public void atak(Key klawisz, Random rand) 
         {
-            gracz.atak(klawisz.Key, rand);
+            gracz.atak(klawisz, rand);
             foreach (Przeciwnik przeciwnik in przeciwnicy) 
             {
-                przeciwnik.ruszSię(rand);
+                uderzGracza(przeciwnik.ruszSię(rand), rand);
             }
         }
         private Point podajLosoweMiejsce(Random rand) 
         {
-            return new Point(bariera.Left + rand.Next(bariera.Right / 10 - bariera.Left / 10) * 10, 
-                bariera.Top + rand.Next(bariera.Bottom / 10 - bariera.Top / 10) * 10);
+
+            return new Point(rand.Next(0, Convert.ToInt32(bariera.ActualWidth)), 
+                rand.Next(0, Convert.ToInt32(bariera.ActualHeight)));
         }
         public void nowyPoziom(Random rand)
         {
             poziom++;
-            List<Przeciwnik> przeciwnicy1 = new List<Przeciwnik>();
+            przeciwnicy = new List<Przeciwnik>();
             switch (poziom)
             {
                 case 1:
-                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
                     bronieWPokoju = new Miecz(this, podajLosoweMiejsce(rand));
                     break;
                 case 2:
-                    przeciwnicy1.Clear();
-                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Clear();
+                    przeciwnicy.Add(new Duch(this, podajLosoweMiejsce(rand)));
                     bronieWPokoju = new MałaPotka(this, podajLosoweMiejsce(rand));
                     break;
                 case 3:
-                    przeciwnicy1.Clear();
-                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Clear();
+                    przeciwnicy.Add(new Upiór(this, podajLosoweMiejsce(rand)));
                     bronieWPokoju = new Łuk(this, podajLosoweMiejsce(rand));
                     break;
                 case 4:
-                    przeciwnicy1.Clear();
-                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
-                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Clear();
+                    przeciwnicy.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Add(new Duch(this, podajLosoweMiejsce(rand)));
                     if (!sprawdźEkwipunekGracza("Łuk")) 
                     {
                         bronieWPokoju = new Łuk(this, podajLosoweMiejsce(rand));
@@ -95,22 +101,22 @@ namespace Wyprawa
                     }
                     break;
                 case 5:
-                    przeciwnicy1.Clear();
-                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
-                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Clear();
+                    przeciwnicy.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Add(new Upiór(this, podajLosoweMiejsce(rand)));
                     bronieWPokoju = new DużaPotka(this, podajLosoweMiejsce(rand));
                     break;
                 case 6:
-                    przeciwnicy1.Clear();
-                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
-                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Clear();
+                    przeciwnicy.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Add(new Upiór(this, podajLosoweMiejsce(rand)));
                     bronieWPokoju = new Topór(this, podajLosoweMiejsce(rand));
                     break;
                 case 7:
-                    przeciwnicy1.Clear();
-                    przeciwnicy1.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
-                    przeciwnicy1.Add(new Duch(this, podajLosoweMiejsce(rand)));
-                    przeciwnicy1.Add(new Upiór(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Clear();
+                    przeciwnicy.Add(new Nietoperz(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Add(new Duch(this, podajLosoweMiejsce(rand)));
+                    przeciwnicy.Add(new Upiór(this, podajLosoweMiejsce(rand)));
                     if (!sprawdźEkwipunekGracza("Topór")) {
                         bronieWPokoju = new Topór(this, podajLosoweMiejsce(rand));
                     }

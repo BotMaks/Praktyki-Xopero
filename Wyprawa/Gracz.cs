@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Input;
 using System.Windows.Forms;
+using System.Windows.Controls;
 
 namespace Wyprawa
 {

@@ -13,7 +13,7 @@ namespace Wyprawa
     {
         public Upiór(Gra gra, Point lokalizacja) : base(gra, lokalizacja, 10) { }
 
-        public override void ruszSię(Random rand)
+        public override int ruszSię(Random rand)
         {
             if (zdrowie > 0)
             {
@@ -22,6 +22,15 @@ namespace Wyprawa
                     Key kierunek = znajdźKierunekGracza(gra.lokalizacjaGracza);
                     ruszSię(kierunek, this.lokalizacja, gra.Bariera);
                 }
+                if (obokGracza())
+                {
+                    return rand.Next(1, 4);
+                }
+                else { return 0; }
+            }
+            else 
+            { 
+                return 0; 
             }
         }
     }

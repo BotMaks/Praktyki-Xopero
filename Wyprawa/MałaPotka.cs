@@ -15,7 +15,7 @@ namespace Wyprawa
 
         public MałaPotka(Gra gra, Point lokalizacja):base(gra, lokalizacja) { użyta = false; }
 
-        public override string nazwa { get { return "Potka many"; } }
+        public override string nazwa { get { return "Mała potka"; } }
         public override void atak(Key kierunek, Random rand)
         {
             gra.podnieśZdrowieGracza(5, rand);

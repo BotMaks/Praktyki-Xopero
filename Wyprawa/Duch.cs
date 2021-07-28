@@ -12,14 +12,24 @@ namespace Wyprawa
     {
         public Duch(Gra gra, Point lokalizacja) : base(gra, lokalizacja, 8) { }
 
-        public override void ruszSię(Random rand)
+        public override int ruszSię(Random rand)
         {
-            if (zdrowie>0) {
+            if (zdrowie > 0)
+            {
                 if (rand.Next(1, 3) == 1)
                 {
                     Key kierunek = znajdźKierunekGracza(gra.lokalizacjaGracza);
                     ruszSię(kierunek, this.lokalizacja, gra.Bariera);
-                } 
+                }
+                if (obokGracza())
+                {
+                    return rand.Next(1, 3);
+                }
+                else { return 0; }
+            }
+            else
+            {
+                return 0;
             }
         }
     }
